@@ -52,3 +52,4 @@ D:\Projects\Algoriza\ShipConnect\Application\bin\Debug\net8.0\Domain.pdb
 D:\Projects\Algoriza\ShipConnect\Application\obj\Debug\net8.0\Applicat.44B5EDA2.Up2Date
 D:\Projects\Algoriza\ShipConnect\Application\obj\Debug\net8.0\Application.genruntimeconfig.cache
 D:\Projects\Algoriza\ShipConnect\Application\obj\Debug\net8.0\ref\Application.dll
+D:\Projects\Algoriza\ShipConnect\Application\obj\Debug\net8.0\Application.sourcelink.json

@@ -1,6 +1,38 @@
 [
   {
     "ContainingType": "APICoursePlatform.Controllers.AccountController",
+    "Method": "FacebookLogin",
+    "RelativePath": "api/Account/facebook-login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "Application.DTOs.AccountDTOs.FacebookLoginDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "APICoursePlatform.Controllers.AccountController",
+    "Method": "FacebookRegister",
+    "RelativePath": "api/Account/facebook-register",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "Application.DTOs.AccountDTOs.FacebookRegisterDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "APICoursePlatform.Controllers.AccountController",
     "Method": "GoogleLogin",
     "RelativePath": "api/Account/google-login",
     "HttpMethod": "POST",
@@ -42,6 +74,38 @@
       {
         "Name": "userFromRequest",
         "Type": "APICoursePlatform.DTOs.AccountDTOs.LoginDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "APICoursePlatform.Controllers.AccountController",
+    "Method": "MicrosoftLogin",
+    "RelativePath": "api/Account/microsoft-login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "Application.DTOs.AccountDTOs.MicrosoftLoginDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "APICoursePlatform.Controllers.AccountController",
+    "Method": "MicrosoftRegister",
+    "RelativePath": "api/Account/microsoft-register",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "Application.DTOs.AccountDTOs.MicrosoftRegisterDTO",
         "IsRequired": true
       }
     ],

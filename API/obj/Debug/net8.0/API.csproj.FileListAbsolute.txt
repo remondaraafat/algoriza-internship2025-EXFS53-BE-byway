@@ -445,3 +445,4 @@ D:\Projects\Algoriza\ShipConnect\API\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnal
 D:\Projects\Algoriza\ShipConnect\API\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.Facebook.dll
 D:\Projects\Algoriza\ShipConnect\API\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.Google.dll
 D:\Projects\Algoriza\ShipConnect\API\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.MicrosoftAccount.dll
+D:\Projects\Algoriza\ShipConnect\API\obj\Debug\net8.0\API.sourcelink.json

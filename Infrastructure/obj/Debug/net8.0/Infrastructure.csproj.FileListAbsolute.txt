@@ -58,3 +58,4 @@ D:\Projects\Algoriza\ShipConnect\Infrastructure\bin\Debug\net8.0\Domain.pdb
 D:\Projects\Algoriza\ShipConnect\Infrastructure\obj\Debug\net8.0\Infrastr.15EFFBFE.Up2Date
 D:\Projects\Algoriza\ShipConnect\Infrastructure\obj\Debug\net8.0\Infrastructure.genruntimeconfig.cache
 D:\Projects\Algoriza\ShipConnect\Infrastructure\obj\Debug\net8.0\ref\Infrastructure.dll
+D:\Projects\Algoriza\ShipConnect\Infrastructure\obj\Debug\net8.0\Infrastructure.sourcelink.json
