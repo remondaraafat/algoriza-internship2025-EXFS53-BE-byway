@@ -1,0 +1,54 @@
+E:\ITI\Projects\Onion Architecture\ShipConnect\Application\obj\Debug\net8.0\Application.csproj.AssemblyReference.cache
+E:\ITI\Projects\Onion Architecture\ShipConnect\Application\obj\Debug\net8.0\Application.GeneratedMSBuildEditorConfig.editorconfig
+E:\ITI\Projects\Onion Architecture\ShipConnect\Application\obj\Debug\net8.0\Application.AssemblyInfoInputs.cache
+E:\ITI\Projects\Onion Architecture\ShipConnect\Application\obj\Debug\net8.0\Application.AssemblyInfo.cs
+E:\ITI\Projects\Onion Architecture\ShipConnect\Application\obj\Debug\net8.0\Application.csproj.CoreCompileInputs.cache
+E:\ITI\Projects\Onion Architecture\ShipConnect\Application\bin\Debug\net8.0\FiftyOne.DeviceDetection.Hash.Engine.OnPremise.Native.dll
+E:\ITI\Projects\Onion Architecture\ShipConnect\Application\bin\Debug\net8.0\Application.deps.json
+E:\ITI\Projects\Onion Architecture\ShipConnect\Application\bin\Debug\net8.0\Application.runtimeconfig.json
+E:\ITI\Projects\Onion Architecture\ShipConnect\Application\bin\Debug\net8.0\Application.dll
+E:\ITI\Projects\Onion Architecture\ShipConnect\Application\bin\Debug\net8.0\Application.pdb
+E:\ITI\Projects\Onion Architecture\ShipConnect\Application\bin\Debug\net8.0\Domain.dll
+E:\ITI\Projects\Onion Architecture\ShipConnect\Application\bin\Debug\net8.0\Domain.pdb
+E:\ITI\Projects\Onion Architecture\ShipConnect\Application\obj\Debug\net8.0\Applicat.44B5EDA2.Up2Date
+E:\ITI\Projects\Onion Architecture\ShipConnect\Application\obj\Debug\net8.0\Application.dll
+E:\ITI\Projects\Onion Architecture\ShipConnect\Application\obj\Debug\net8.0\refint\Application.dll
+E:\ITI\Projects\Onion Architecture\ShipConnect\Application\obj\Debug\net8.0\Application.pdb
+E:\ITI\Projects\Onion Architecture\ShipConnect\Application\obj\Debug\net8.0\Application.genruntimeconfig.cache
+E:\ITI\Projects\Onion Architecture\ShipConnect\Application\obj\Debug\net8.0\ref\Application.dll
+R:\iti_intake_45\ShipConnect\structured project\ShipConnect\ShipConnect\Application\bin\Debug\net8.0\FiftyOne.DeviceDetection.Hash.Engine.OnPremise.Native.dll
+R:\iti_intake_45\ShipConnect\structured project\ShipConnect\ShipConnect\Application\bin\Debug\net8.0\Application.deps.json
+R:\iti_intake_45\ShipConnect\structured project\ShipConnect\ShipConnect\Application\bin\Debug\net8.0\Application.runtimeconfig.json
+R:\iti_intake_45\ShipConnect\structured project\ShipConnect\ShipConnect\Application\bin\Debug\net8.0\Application.dll
+R:\iti_intake_45\ShipConnect\structured project\ShipConnect\ShipConnect\Application\bin\Debug\net8.0\Application.pdb
+R:\iti_intake_45\ShipConnect\structured project\ShipConnect\ShipConnect\Application\bin\Debug\net8.0\Domain.dll
+R:\iti_intake_45\ShipConnect\structured project\ShipConnect\ShipConnect\Application\bin\Debug\net8.0\Domain.pdb
+R:\iti_intake_45\ShipConnect\structured project\ShipConnect\ShipConnect\Application\obj\Debug\net8.0\Application.csproj.AssemblyReference.cache
+R:\iti_intake_45\ShipConnect\structured project\ShipConnect\ShipConnect\Application\obj\Debug\net8.0\Application.GeneratedMSBuildEditorConfig.editorconfig
+R:\iti_intake_45\ShipConnect\structured project\ShipConnect\ShipConnect\Application\obj\Debug\net8.0\Application.AssemblyInfoInputs.cache
+R:\iti_intake_45\ShipConnect\structured project\ShipConnect\ShipConnect\Application\obj\Debug\net8.0\Application.AssemblyInfo.cs
+R:\iti_intake_45\ShipConnect\structured project\ShipConnect\ShipConnect\Application\obj\Debug\net8.0\Application.csproj.CoreCompileInputs.cache
+R:\iti_intake_45\ShipConnect\structured project\ShipConnect\ShipConnect\Application\obj\Debug\net8.0\Applicat.44B5EDA2.Up2Date
+R:\iti_intake_45\ShipConnect\structured project\ShipConnect\ShipConnect\Application\obj\Debug\net8.0\Application.dll
+R:\iti_intake_45\ShipConnect\structured project\ShipConnect\ShipConnect\Application\obj\Debug\net8.0\refint\Application.dll
+R:\iti_intake_45\ShipConnect\structured project\ShipConnect\ShipConnect\Application\obj\Debug\net8.0\Application.pdb
+R:\iti_intake_45\ShipConnect\structured project\ShipConnect\ShipConnect\Application\obj\Debug\net8.0\Application.genruntimeconfig.cache
+R:\iti_intake_45\ShipConnect\structured project\ShipConnect\ShipConnect\Application\obj\Debug\net8.0\ref\Application.dll
+D:\Projects\Algoriza\ShipConnect\Application\obj\Debug\net8.0\Application.csproj.AssemblyReference.cache
+D:\Projects\Algoriza\ShipConnect\Application\obj\Debug\net8.0\Application.GeneratedMSBuildEditorConfig.editorconfig
+D:\Projects\Algoriza\ShipConnect\Application\obj\Debug\net8.0\Application.AssemblyInfoInputs.cache
+D:\Projects\Algoriza\ShipConnect\Application\obj\Debug\net8.0\Application.AssemblyInfo.cs
+D:\Projects\Algoriza\ShipConnect\Application\obj\Debug\net8.0\Application.csproj.CoreCompileInputs.cache
+D:\Projects\Algoriza\ShipConnect\Application\obj\Debug\net8.0\Application.dll
+D:\Projects\Algoriza\ShipConnect\Application\obj\Debug\net8.0\refint\Application.dll
+D:\Projects\Algoriza\ShipConnect\Application\obj\Debug\net8.0\Application.pdb
+D:\Projects\Algoriza\ShipConnect\Application\bin\Debug\net8.0\FiftyOne.DeviceDetection.Hash.Engine.OnPremise.Native.dll
+D:\Projects\Algoriza\ShipConnect\Application\bin\Debug\net8.0\Application.deps.json
+D:\Projects\Algoriza\ShipConnect\Application\bin\Debug\net8.0\Application.runtimeconfig.json
+D:\Projects\Algoriza\ShipConnect\Application\bin\Debug\net8.0\Application.dll
+D:\Projects\Algoriza\ShipConnect\Application\bin\Debug\net8.0\Application.pdb
+D:\Projects\Algoriza\ShipConnect\Application\bin\Debug\net8.0\Domain.dll
+D:\Projects\Algoriza\ShipConnect\Application\bin\Debug\net8.0\Domain.pdb
+D:\Projects\Algoriza\ShipConnect\Application\obj\Debug\net8.0\Applicat.44B5EDA2.Up2Date
+D:\Projects\Algoriza\ShipConnect\Application\obj\Debug\net8.0\Application.genruntimeconfig.cache
+D:\Projects\Algoriza\ShipConnect\Application\obj\Debug\net8.0\ref\Application.dll
