@@ -1,4 +1,5 @@
-﻿global using MediatR;
+﻿global using APICoursePlatform.Repository;
+global using MediatR;
 global using APICoursePlatform.Helpers;
 global using APICoursePlatform.Enums;
 global using APICoursePlatform.UnitOfWorkContract;

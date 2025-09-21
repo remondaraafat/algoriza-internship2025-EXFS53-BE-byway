@@ -44,7 +44,7 @@ namespace API.Extensions
                     ValidAudience = jwtSettings["AudienceIP"],
                     IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey))
                 };
-            }).AddExternalAuthProviders(config);
+            });//.AddExternalAuthProviders(config);
 
             return services;
         }

@@ -79,47 +79,47 @@ namespace APICoursePlatform.Controllers
         }
         #endregion
         //google
-        [HttpPost("google-register")]
-        public async Task<IActionResult> GoogleRegister([FromBody] GoogleRegisterDTO dto)
-        {
-            var result = await _mediator.Send(new GoogleRegisterCommand { DTO = dto });
-            return Ok(result);
-        }
+        //[HttpPost("google-register")]
+        //public async Task<IActionResult> GoogleRegister([FromBody] GoogleRegisterDTO dto)
+        //{
+        //    var result = await _mediator.Send(new GoogleRegisterCommand { DTO = dto });
+        //    return Ok(result);
+        //}
 
-        [HttpPost("google-login")]
-        public async Task<IActionResult> GoogleLogin([FromBody] GoogleLoginDTO dto)
-        {
-            var result = await _mediator.Send(new GoogleLoginCommand(dto));
-            return Ok(result);
-        }
-        //facebook
-        [HttpPost("facebook-register")]
-        public async Task<IActionResult> FacebookRegister([FromBody] FacebookRegisterDTO dto)
-        {
-            var result = await _mediator.Send(new FacebookRegisterCommand { DTO = dto });
-            return Ok(result);
-        }
+        //[HttpPost("google-login")]
+        //public async Task<IActionResult> GoogleLogin([FromBody] GoogleLoginDTO dto)
+        //{
+        //    var result = await _mediator.Send(new GoogleLoginCommand(dto));
+        //    return Ok(result);
+        //}
+        ////facebook
+        //[HttpPost("facebook-register")]
+        //public async Task<IActionResult> FacebookRegister([FromBody] FacebookRegisterDTO dto)
+        //{
+        //    var result = await _mediator.Send(new FacebookRegisterCommand { DTO = dto });
+        //    return Ok(result);
+        //}
 
-        [HttpPost("facebook-login")]
-        public async Task<IActionResult> FacebookLogin([FromBody] FacebookLoginDTO dto)
-        {
-            var result = await _mediator.Send(new FacebookLoginCommand(dto));
-            return Ok(result);
-        }
-        //microsoft
-        [HttpPost("microsoft-register")]
-        public async Task<IActionResult> MicrosoftRegister([FromBody] MicrosoftRegisterDTO dto)
-        {
-            var result = await _mediator.Send(new MicrosoftRegisterCommand { DTO = dto });
-            return Ok(result);
-        }
+        //[HttpPost("facebook-login")]
+        //public async Task<IActionResult> FacebookLogin([FromBody] FacebookLoginDTO dto)
+        //{
+        //    var result = await _mediator.Send(new FacebookLoginCommand(dto));
+        //    return Ok(result);
+        //}
+        ////microsoft
+        //[HttpPost("microsoft-register")]
+        //public async Task<IActionResult> MicrosoftRegister([FromBody] MicrosoftRegisterDTO dto)
+        //{
+        //    var result = await _mediator.Send(new MicrosoftRegisterCommand { DTO = dto });
+        //    return Ok(result);
+        //}
 
-        [HttpPost("microsoft-login")]
-        public async Task<IActionResult> MicrosoftLogin([FromBody] MicrosoftLoginDTO dto)
-        {
-            var result = await _mediator.Send(new MicrosoftLoginCommand(dto));
-            return Ok(result);
-        }
+        //[HttpPost("microsoft-login")]
+        //public async Task<IActionResult> MicrosoftLogin([FromBody] MicrosoftLoginDTO dto)
+        //{
+        //    var result = await _mediator.Send(new MicrosoftLoginCommand(dto));
+        //    return Ok(result);
+        //}
 
 
 

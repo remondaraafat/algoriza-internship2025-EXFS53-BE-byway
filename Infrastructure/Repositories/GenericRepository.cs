@@ -70,7 +70,7 @@ namespace APICoursePlatform.Repository
 
             if (typeof(IBaseModel).IsAssignableFrom(typeof(T)))
             {
-                query = query.Where(e => EF.Property<bool>(e, "IsDeleted") == false);
+                query = query.Where(e => EF.Property<bool>(e, "IsDeleted") == false).AsNoTracking();
             }
             return predicate == null ? await query.CountAsync()
                                      : await query.CountAsync(predicate);

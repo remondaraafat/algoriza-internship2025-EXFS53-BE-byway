@@ -1,6 +1,8 @@
 ﻿using APICoursePlatform.Repository;
 using APICoursePlatform.RepositoryContract;
+using Application.Interfaces;
 using Infrastructure.Persistence.Data;
+using Infrastructure.Repositories;
 
 namespace APICoursePlatform.UnitOfWorkContract
 {
@@ -8,16 +10,16 @@ namespace APICoursePlatform.UnitOfWorkContract
     {
         private readonly CoursePlatformContext _context;
 
-        
+
         //private INotificationRepository _notificationRepository;
         //private IPaymentRepository _paymentRepository;
-        
-
+        private IInstructorRepository _instructorRepository;
+        private ICartItemRepository _cartItemRepository;
         public UnitOfWork(CoursePlatformContext context)
         {
             _context = context;
         }
-        
+
 
 
 
@@ -55,16 +57,24 @@ namespace APICoursePlatform.UnitOfWorkContract
 
 
 
-        //public IPasswordResetCodeRepository PasswordResetCodeRepository
-        //{
-        //    get
-        //    {
-        //        if (_passwordResetCodeRepository == null)
-        //            _passwordResetCodeRepository = new PasswordResetCodeRepository(_context);
-        //        return _passwordResetCodeRepository;
-        //    }
-        //}
-
+        public IInstructorRepository InstructorRepository
+        {
+            get
+            {
+                if (_instructorRepository == null)
+                    _instructorRepository = new InstructorRepository(_context);
+                return _instructorRepository;
+            }
+        }
+        public ICartItemRepository CartItemRepository
+        {
+            get
+            {
+                if (_cartItemRepository == null)
+                    _cartItemRepository = new CartItemRepository(_context);
+                return _cartItemRepository;
+            }
+        }
         public async Task SaveAsync()
         {
             await _context.SaveChangesAsync();
