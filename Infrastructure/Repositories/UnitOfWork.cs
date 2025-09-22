@@ -15,6 +15,8 @@ namespace APICoursePlatform.UnitOfWorkContract
         //private IPaymentRepository _paymentRepository;
         private IInstructorRepository _instructorRepository;
         private ICartItemRepository _cartItemRepository;
+        private ICategoryRepository _categoryRepository;
+        private ICourseRepository _courseRepository;
         public UnitOfWork(CoursePlatformContext context)
         {
             _context = context;
@@ -49,8 +51,24 @@ namespace APICoursePlatform.UnitOfWorkContract
         //    }
         //}
 
-
-
+        public ICourseRepository courseRepository
+        {
+            get
+            {
+                if (_courseRepository == null)
+                    _courseRepository = new CourseRepository(_context);
+                return _courseRepository;
+            }
+        }
+        public ICategoryRepository categoryRepository
+        {
+            get
+            {
+                if (_categoryRepository == null)
+                    _categoryRepository = new CategoryRepository(_context);
+                return _categoryRepository;
+            }
+        }
 
 
 

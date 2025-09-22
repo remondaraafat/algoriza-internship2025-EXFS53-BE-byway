@@ -4,6 +4,7 @@ using Application.DTOs.InstructorDTOs;
 using Application.Servicies;
 using Domain.Models;
 using MediatR;
+using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,18 +21,27 @@ namespace Application.CQRS.InstructorCQRS.Commands
     public class CreateInstructorHandler : IRequestHandler<CreateInstructorCommand, GeneralResponse<int>>
     {
         private readonly IUnitOfWork _unitOfWork;
+        private readonly IHttpContextAccessor _httpContextAccessor;
 
-        public CreateInstructorHandler(IUnitOfWork unitOfWork)
+        public CreateInstructorHandler(IUnitOfWork unitOfWork, IHttpContextAccessor httpContextAccessor)
         {
             _unitOfWork = unitOfWork;
+            _httpContextAccessor = httpContextAccessor;
         }
 
         public async Task<GeneralResponse<int>> Handle(CreateInstructorCommand request, CancellationToken cancellationToken)
         {
             var dto = request.DTO;
-            var imagePath = await FileService.UploadFileAsync(request.DTO.ImageFile);
-            if (imagePath.StartsWith("Error") || imagePath.StartsWith("File"))
-                return GeneralResponse<int>.FailResponse("Image upload failed", 0);
+            // FileService call
+            var uploadResult = await FileService.UploadFileAsync(dto.ImageFile);
+
+            if (!uploadResult.Success)
+            {
+                return GeneralResponse<int>.FailResponse($"Image upload failed: {uploadResult.Message}",0);
+            }
+
+          
+
 
             var instructor = new Instructor
             {
@@ -39,7 +49,7 @@ namespace Application.CQRS.InstructorCQRS.Commands
                 Bio = dto.Bio,
                 jobTitle = dto.JobTitle,
                 Rating = dto.Rating,
-                ImageUrl = imagePath
+                ImageUrl = uploadResult.Data
             };
 
             await _unitOfWork.InstructorRepository.AddAsync(instructor);

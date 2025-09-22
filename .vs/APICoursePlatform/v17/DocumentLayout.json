@@ -3,24 +3,8 @@
   "WorkspaceRootPath": "D:\\Projects\\Algoriza\\ShipConnect\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{F1247F8A-471F-2482-31DC-BA2233D52A63}|API\\API.csproj|d:\\projects\\algoriza\\shipconnect\\api\\controllers\\cartitemcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F1247F8A-471F-2482-31DC-BA2233D52A63}|API\\API.csproj|solutionrelative:api\\controllers\\cartitemcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8F216FB3-E0A0-AFEA-275A-4728126B9DB8}|Application\\Application.csproj|d:\\projects\\algoriza\\shipconnect\\application\\cqrs\\cartitemcqrs\\commands\\createcartitemcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8F216FB3-E0A0-AFEA-275A-4728126B9DB8}|Application\\Application.csproj|solutionrelative:application\\cqrs\\cartitemcqrs\\commands\\createcartitemcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8F216FB3-E0A0-AFEA-275A-4728126B9DB8}|Application\\Application.csproj|d:\\projects\\algoriza\\shipconnect\\application\\cqrs\\login\\commands\\logincommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8F216FB3-E0A0-AFEA-275A-4728126B9DB8}|Application\\Application.csproj|solutionrelative:application\\cqrs\\login\\commands\\logincommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8F216FB3-E0A0-AFEA-275A-4728126B9DB8}|Application\\Application.csproj|d:\\projects\\algoriza\\shipconnect\\application\\cqrs\\cartitemcqrs\\commands\\deletecartitemcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8F216FB3-E0A0-AFEA-275A-4728126B9DB8}|Application\\Application.csproj|solutionrelative:application\\cqrs\\cartitemcqrs\\commands\\deletecartitemcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8F216FB3-E0A0-AFEA-275A-4728126B9DB8}|Application\\Application.csproj|d:\\projects\\algoriza\\shipconnect\\application\\dtos\\cartitemdtos\\getcartitemdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8F216FB3-E0A0-AFEA-275A-4728126B9DB8}|Application\\Application.csproj|solutionrelative:application\\dtos\\cartitemdtos\\getcartitemdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8F216FB3-E0A0-AFEA-275A-4728126B9DB8}|Application\\Application.csproj|d:\\projects\\algoriza\\shipconnect\\application\\cqrs\\coursecqrs\\command\\updatecoursecommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F216FB3-E0A0-AFEA-275A-4728126B9DB8}|Application\\Application.csproj|solutionrelative:application\\cqrs\\coursecqrs\\command\\updatecoursecommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,71 +14,19 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "LoginCommand.cs",
-              "DocumentMoniker": "D:\\Projects\\Algoriza\\ShipConnect\\Application\\CQRS\\Login\\Commands\\LoginCommand.cs",
-              "RelativeDocumentMoniker": "Application\\CQRS\\Login\\Commands\\LoginCommand.cs",
-              "ToolTip": "D:\\Projects\\Algoriza\\ShipConnect\\Application\\CQRS\\Login\\Commands\\LoginCommand.cs",
-              "RelativeToolTip": "Application\\CQRS\\Login\\Commands\\LoginCommand.cs",
-              "ViewState": "AgIAAD4AAAAAAAAAAAAowFQAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-21T18:25:14.889Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "CreateCartItemCommand.cs",
-              "DocumentMoniker": "D:\\Projects\\Algoriza\\ShipConnect\\Application\\CQRS\\CartItemCQRS\\Commands\\CreateCartItemCommand.cs",
-              "RelativeDocumentMoniker": "Application\\CQRS\\CartItemCQRS\\Commands\\CreateCartItemCommand.cs",
-              "ToolTip": "D:\\Projects\\Algoriza\\ShipConnect\\Application\\CQRS\\CartItemCQRS\\Commands\\CreateCartItemCommand.cs",
-              "RelativeToolTip": "Application\\CQRS\\CartItemCQRS\\Commands\\CreateCartItemCommand.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-21T18:09:22.722Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "CartItemController.cs",
-              "DocumentMoniker": "D:\\Projects\\Algoriza\\ShipConnect\\API\\Controllers\\CartItemController.cs",
-              "RelativeDocumentMoniker": "API\\Controllers\\CartItemController.cs",
-              "ToolTip": "D:\\Projects\\Algoriza\\ShipConnect\\API\\Controllers\\CartItemController.cs",
-              "RelativeToolTip": "API\\Controllers\\CartItemController.cs",
-              "ViewState": "AgIAACoAAAAAAAAAAAAtwDEAAABeAAAAAAAAAA==",
+              "Title": "UpdateCourseCommand.cs",
+              "DocumentMoniker": "D:\\Projects\\Algoriza\\ShipConnect\\Application\\CQRS\\CourseCQRS\\Command\\UpdateCourseCommand.cs",
+              "RelativeDocumentMoniker": "Application\\CQRS\\CourseCQRS\\Command\\UpdateCourseCommand.cs",
+              "ToolTip": "D:\\Projects\\Algoriza\\ShipConnect\\Application\\CQRS\\CourseCQRS\\Command\\UpdateCourseCommand.cs",
+              "RelativeToolTip": "Application\\CQRS\\CourseCQRS\\Command\\UpdateCourseCommand.cs",
+              "ViewState": "AgIAACwAAAAAAAAAAAAkwC0AAAB9AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-21T18:07:16.225Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "DeleteCartItemCommand.cs",
-              "DocumentMoniker": "D:\\Projects\\Algoriza\\ShipConnect\\Application\\CQRS\\CartItemCQRS\\Commands\\DeleteCartItemCommand.cs",
-              "RelativeDocumentMoniker": "Application\\CQRS\\CartItemCQRS\\Commands\\DeleteCartItemCommand.cs",
-              "ToolTip": "D:\\Projects\\Algoriza\\ShipConnect\\Application\\CQRS\\CartItemCQRS\\Commands\\DeleteCartItemCommand.cs",
-              "RelativeToolTip": "Application\\CQRS\\CartItemCQRS\\Commands\\DeleteCartItemCommand.cs",
-              "ViewState": "AgIAABIAAAAAAAAAAAAYwCMAAABSAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-21T17:10:55.433Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "GetCartItemDto.cs",
-              "DocumentMoniker": "D:\\Projects\\Algoriza\\ShipConnect\\Application\\DTOs\\CartItemDTOs\\GetCartItemDto.cs",
-              "RelativeDocumentMoniker": "Application\\DTOs\\CartItemDTOs\\GetCartItemDto.cs",
-              "ToolTip": "D:\\Projects\\Algoriza\\ShipConnect\\Application\\DTOs\\CartItemDTOs\\GetCartItemDto.cs",
-              "RelativeToolTip": "Application\\DTOs\\CartItemDTOs\\GetCartItemDto.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAxwA4AAAAVAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-21T17:33:52.467Z",
+              "WhenOpened": "2025-09-22T14:27:00.538Z",
               "EditorCaption": ""
             }
           ]

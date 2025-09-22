@@ -15,6 +15,8 @@ namespace Application.DTOs.InstructorDTOs
         public JobTitle JobTitle { get; set; }
         public int Rating { get; set; }
         public string ImageUrl { get; set; }
+        public int NumberOfCourses { get; set; }
+        public int NumberOfStudents { get; set; }
         public List<string> Courses { get; set; } = new();
     }
 }

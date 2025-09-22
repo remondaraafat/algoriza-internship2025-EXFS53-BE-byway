@@ -37,7 +37,12 @@ namespace Application.CQRS.InstructorCQRS.Queries
                 Bio = instructor.Bio,
                 JobTitle = instructor.jobTitle,
                 Rating = instructor.Rating,
-                ImageUrl = instructor.ImageUrl
+                ImageUrl = instructor.ImageUrl,
+                NumberOfCourses = instructor.Courses?.Count ?? 0,
+                NumberOfStudents = instructor.Courses?.SelectMany(c => c.PaymentCourses)
+                                                     .Select(p => p.Payment.UserId)
+                                                     .Distinct()
+                                                     .Count() ?? 0,
             };
 
             return GeneralResponse<GetOneInstructorDto>.SuccessResponse("Instructor fetched successfully", dto);

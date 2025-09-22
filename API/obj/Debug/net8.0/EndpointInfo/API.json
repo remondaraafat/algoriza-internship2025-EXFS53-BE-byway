@@ -194,6 +194,276 @@
         }
       }
     },
+    "/api/Categories/names": {
+      "get": {
+        "tags": [
+          "Categories"
+        ],
+        "parameters": [
+          {
+            "name": "pageNumber",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 1
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 10
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Courses/create": {
+      "post": {
+        "tags": [
+          "Courses"
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "required": [
+                  "CategoryId",
+                  "Certificate",
+                  "Description",
+                  "ImageFile",
+                  "InstructorId",
+                  "Level",
+                  "Price",
+                  "Rating",
+                  "Title",
+                  "TotalHours"
+                ],
+                "type": "object",
+                "properties": {
+                  "Title": {
+                    "maxLength": 200,
+                    "type": "string"
+                  },
+                  "Description": {
+                    "maxLength": 1000,
+                    "type": "string"
+                  },
+                  "Certificate": {
+                    "maxLength": 1000,
+                    "type": "string"
+                  },
+                  "Price": {
+                    "minimum": 1,
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "Level": {
+                    "$ref": "#/components/schemas/CourseLevel"
+                  },
+                  "Rating": {
+                    "maximum": 5,
+                    "minimum": 1,
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "TotalHours": {
+                    "minimum": 0.5,
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "ImageFile": {
+                    "maxLength": 250,
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "CategoryId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "InstructorId": {
+                    "type": "integer",
+                    "format": "int32"
+                  }
+                }
+              },
+              "encoding": {
+                "Title": {
+                  "style": "form"
+                },
+                "Description": {
+                  "style": "form"
+                },
+                "Certificate": {
+                  "style": "form"
+                },
+                "Price": {
+                  "style": "form"
+                },
+                "Level": {
+                  "style": "form"
+                },
+                "Rating": {
+                  "style": "form"
+                },
+                "TotalHours": {
+                  "style": "form"
+                },
+                "ImageFile": {
+                  "style": "form"
+                },
+                "CategoryId": {
+                  "style": "form"
+                },
+                "InstructorId": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Courses/update": {
+      "put": {
+        "tags": [
+          "Courses"
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "required": [
+                  "CategoryId",
+                  "Certificate",
+                  "Description",
+                  "Id",
+                  "ImageFile",
+                  "InstructorId",
+                  "Level",
+                  "Price",
+                  "Rating",
+                  "ReleaseDate",
+                  "Title",
+                  "TotalHours"
+                ],
+                "type": "object",
+                "properties": {
+                  "Id": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Title": {
+                    "maxLength": 200,
+                    "type": "string"
+                  },
+                  "Description": {
+                    "maxLength": 1000,
+                    "type": "string"
+                  },
+                  "Certificate": {
+                    "maxLength": 1000,
+                    "type": "string"
+                  },
+                  "Price": {
+                    "minimum": 1,
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "Level": {
+                    "$ref": "#/components/schemas/CourseLevel"
+                  },
+                  "Rating": {
+                    "maximum": 5,
+                    "minimum": 1,
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "ReleaseDate": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "TotalHours": {
+                    "minimum": 0.5,
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "ImageFile": {
+                    "maxLength": 250,
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "CategoryId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "InstructorId": {
+                    "type": "integer",
+                    "format": "int32"
+                  }
+                }
+              },
+              "encoding": {
+                "Id": {
+                  "style": "form"
+                },
+                "Title": {
+                  "style": "form"
+                },
+                "Description": {
+                  "style": "form"
+                },
+                "Certificate": {
+                  "style": "form"
+                },
+                "Price": {
+                  "style": "form"
+                },
+                "Level": {
+                  "style": "form"
+                },
+                "Rating": {
+                  "style": "form"
+                },
+                "ReleaseDate": {
+                  "style": "form"
+                },
+                "TotalHours": {
+                  "style": "form"
+                },
+                "ImageFile": {
+                  "style": "form"
+                },
+                "CategoryId": {
+                  "style": "form"
+                },
+                "InstructorId": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Instructor/GetAll": {
       "get": {
         "tags": [
@@ -651,6 +921,16 @@
         },
         "additionalProperties": false
       },
+      "CourseLevel": {
+        "enum": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
       "CreateCartItemDto": {
         "required": [
           "courseId",
@@ -677,6 +957,10 @@
             "format": "int32"
           },
           "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "bio": {
             "type": "string",
             "nullable": true
           },
@@ -743,6 +1027,10 @@
             "format": "int32"
           },
           "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "bio": {
             "type": "string",
             "nullable": true
           },
@@ -938,6 +1226,14 @@
           "imageUrl": {
             "type": "string",
             "nullable": true
+          },
+          "numberOfCourses": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "numberOfStudents": {
+            "type": "integer",
+            "format": "int32"
           },
           "courses": {
             "type": "array",

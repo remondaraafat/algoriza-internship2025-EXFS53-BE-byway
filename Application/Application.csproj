@@ -27,4 +27,8 @@
     <ProjectReference Include="..\Domain\Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="CQRS\CourseCQRS\Query\" />
+  </ItemGroup>
+
 </Project>

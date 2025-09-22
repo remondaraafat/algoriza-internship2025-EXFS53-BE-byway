@@ -1,1 +1,2 @@
 wwwroot\images\default-user.png
+wwwroot\uploads\2de8df55-775b-4cf2-a067-1e54ffa4dfec.jpg

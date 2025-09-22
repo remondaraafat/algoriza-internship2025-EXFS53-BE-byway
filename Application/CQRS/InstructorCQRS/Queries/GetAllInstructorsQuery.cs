@@ -34,7 +34,9 @@ namespace Application.CQRS.InstructorCQRS.Queries
                 Id = i.Id,
                 Name = i.Name,
                 JobTitle = i.jobTitle,
-                Rating = i.Rating
+                Rating = i.Rating,
+                Bio = i.Bio,
+                ImageUrl= i.ImageUrl
             }).AsNoTracking().ToList();
 
             var totalCount = await _unitOfWork.InstructorRepository.CountAsync();

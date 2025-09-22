@@ -28,6 +28,9 @@ namespace API
             builder.Services.ConfigureJwtAuthentication(builder.Configuration);
             builder.Services.ConfigureSwagger();
             builder.Services.AddControllers();
+            // for file upload
+            //builder.Services.AddHttpContextAccessor();
+
 
             // CORS
             builder.Services.AddCors(options =>

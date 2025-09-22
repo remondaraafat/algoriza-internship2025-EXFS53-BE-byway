@@ -13,7 +13,8 @@ namespace APICoursePlatform.UnitOfWorkContract
         //IPasswordResetCodeRepository PasswordResetCodeRepository { get; }
         IInstructorRepository InstructorRepository { get; }
         ICartItemRepository CartItemRepository { get; }
-
+        ICategoryRepository categoryRepository { get; }
+        ICourseRepository courseRepository { get; }
         Task SaveAsync();
     }
 }

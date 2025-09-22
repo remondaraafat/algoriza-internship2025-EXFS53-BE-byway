@@ -1,25 +1,29 @@
-﻿using System;
+﻿using APICoursePlatform.Helpers;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
+using ServiceStack.Text;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
 
 namespace Application.Servicies
 {
     internal class FileService
     {
-        public static async Task<string> UploadFileAsync(IFormFile imageFile)
+
+        public static async Task<GeneralResponse<string>> UploadFileAsync(IFormFile imageFile)
         {
             //File Size
             if (imageFile == null || imageFile.Length == 0)
             {
-                return "File can't be Null ";
+                return GeneralResponse<string>.FailResponse("File can't be null", null);
             }
 
             if (imageFile.Length > 5 * 1024 * 1024) // 5MB limit
             {
-                return "Maximum size can be 5 MB";
+                return GeneralResponse<string>.FailResponse("Maximum size can be 5 MB", null);
             }
 
             //Extension
@@ -27,7 +31,7 @@ namespace Application.Servicies
             var extension = Path.GetExtension(imageFile.FileName).ToLower();
             if (!allowedExtensions.Contains(extension))
             {
-                return $"Extension is Not Valid ({string.Join(",", extension)})";
+                return GeneralResponse<string>.FailResponse($"Extension is not valid ({extension})", null);
             }
 
             //Name changing
@@ -48,12 +52,12 @@ namespace Application.Servicies
                     await imageFile.CopyToAsync(stream);
                 }
 
-                return "/uploads/" + fileName;
+                return GeneralResponse<string>.SuccessResponse("File uploaded successfully", "/uploads/" + fileName);
             }
             catch (Exception ex)
             {
 
-                return $"Error uploading image: {ex.Message}";
+                return GeneralResponse<string>.FailResponse($"Error uploading file: {ex.Message}", ex.Message);
             }
         }
         public static string GetFilePath(string fileName)

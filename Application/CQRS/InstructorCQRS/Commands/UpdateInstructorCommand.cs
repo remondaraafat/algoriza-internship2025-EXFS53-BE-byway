@@ -3,6 +3,7 @@ using APICoursePlatform.UnitOfWorkContract;
 using Application.DTOs.InstructorDTOs;
 using Application.Servicies;
 using MediatR;
+using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,10 +20,12 @@ namespace Application.CQRS.InstructorCQRS.Commands
     public class UpdateInstructorHandler : IRequestHandler<UpdateInstructorCommand, GeneralResponse<bool>>
     {
         private readonly IUnitOfWork _unitOfWork;
+        
 
         public UpdateInstructorHandler(IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
+           
         }
 
         public async Task<GeneralResponse<bool>> Handle(UpdateInstructorCommand request, CancellationToken cancellationToken)
@@ -38,14 +41,18 @@ namespace Application.CQRS.InstructorCQRS.Commands
             instructor.jobTitle = dto.JobTitle;
             instructor.Rating = dto.Rating;
 
-            if (request.DTO.ImageFile != null)
-            {
-                var imagePath = await FileService.UploadFileAsync(request.DTO.ImageFile);
-                if (imagePath.StartsWith("Error") || imagePath.StartsWith("File"))
-                    return GeneralResponse<bool>.FailResponse("Image upload failed");
+            
+            
+                // FileService call
+                var uploadResult = await FileService.UploadFileAsync(dto.ImageFile);
 
-                instructor.ImageUrl = imagePath;
-            }
+                if (!uploadResult.Success)
+                {
+                    return GeneralResponse<bool>.FailResponse($"Image upload failed: {uploadResult.Message}", false);
+                }
+
+                instructor.ImageUrl = uploadResult.Data;
+            
 
             _unitOfWork.InstructorRepository.Update(instructor);
             await _unitOfWork.SaveAsync();

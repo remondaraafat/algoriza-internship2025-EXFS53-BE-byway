@@ -25,7 +25,9 @@ namespace Domain.Models
 
        
         [Required,Range(1, 5, ErrorMessage = "Rating must be between {1} and {2}")]
-        public int Rating { get; set; } 
+        public int Rating { get; set; }
+        [Required(ErrorMessage = "Requred")]
+        public DateTime ReleaseDate { get; set; } = DateTime.Now;
 
         [Required]
         public double TotalHours { get; set; }
