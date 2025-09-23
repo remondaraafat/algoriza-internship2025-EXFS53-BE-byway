@@ -12,6 +12,7 @@ namespace APICoursePlatform.RepositoryContract
         Task<int> CountAsync(Expression<Func<T, bool>> predicate = null);
         Task AddAsync(T entity);
         void Update(T entity);
+        IQueryable<T> GetQueryable();
         Task DeleteAsync(Expression<Func<T, bool>> predicate);
 
     }

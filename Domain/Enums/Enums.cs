@@ -23,16 +23,23 @@
             Expert,
             AllLevels
         }
-        public enum NotificationType
+        //public enum NotificationType
+        //{
+        //    General,
+        //    NewOffer,
+        //    OfferAccepted,
+        //    NewMessage,
+        //    PaymentReceived,
+        //    ShipmentStatusChanged,
+        //    ShipmentDelivered,
+        //    RatingReceived
+        //}
+        public enum CourseSortBy
         {
-            General,
-            NewOffer,
-            OfferAccepted,
-            NewMessage,
-            PaymentReceived,
-            ShipmentStatusChanged,
-            ShipmentDelivered,
-            RatingReceived
+            Latest = 1,
+            Oldest = 2,
+            HighestPrice = 3,
+            LowestPrice = 4
         }
     }
 }

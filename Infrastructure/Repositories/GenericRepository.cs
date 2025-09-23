@@ -112,6 +112,18 @@ namespace APICoursePlatform.Repository
         {
             return await _dbSet.FirstOrDefaultAsync(predicate);
         }
+        public IQueryable<T> GetQueryable()
+        {
+            IQueryable<T> query = _dbSet;
+
+            if (typeof(IBaseModel).IsAssignableFrom(typeof(T)))
+            {
+                query = query.Where(e => EF.Property<bool>(e, "IsDeleted") == false);
+            }
+
+            return query.AsQueryable();
+        }
+
 
     }
 }

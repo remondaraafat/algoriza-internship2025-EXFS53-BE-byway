@@ -30,13 +30,29 @@ namespace Application.CQRS.InstructorCQRS.Commands
         {
             try
             {
+                var instructor = await _unitOfWork.InstructorRepository.GetByIdAsync(request.Id);
+
+                if (instructor == null)
+                    return GeneralResponse<bool>.FailResponse("Instructor not found.", false);
+
+                //Check if instructor has any courses
+                if (instructor.Courses != null && instructor.Courses.Any())
+                {
+                    return GeneralResponse<bool>.FailResponse(
+                        "Instructor cannot be deleted because they are assigned to one or more courses.",
+                        false
+                    );
+                }
+
+                // delete
                 await _unitOfWork.InstructorRepository.DeleteAsync(i => i.Id == request.Id);
                 await _unitOfWork.SaveAsync();
-                return GeneralResponse<bool>.SuccessResponse("Instructor deleted successfully", true);
+
+                return GeneralResponse<bool>.SuccessResponse("Instructor deleted successfully.", true);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                return GeneralResponse<bool>.FailResponse("Failed to delete instructor", false);
+                return GeneralResponse<bool>.FailResponse("Failed to delete instructor due to an error.", false);
             }
         }
     }

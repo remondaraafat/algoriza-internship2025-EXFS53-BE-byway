@@ -41,7 +41,7 @@ namespace Application.DTOs.CourseDTOs
         public double TotalHours { get; set; }
 
         [Required(ErrorMessage = "Image file is required")]
-        [MaxLength(250, ErrorMessage = "Image file name cannot exceed {1} characters")]
+
         public IFormFile ImageFile { get; set; }
 
         [Required(ErrorMessage = "Category Id is required")]

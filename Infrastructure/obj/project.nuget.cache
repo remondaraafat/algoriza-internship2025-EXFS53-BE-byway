@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "VbViw3NzCpw=",
+  "dgSpecHash": "MPCubYqehNQ=",
   "success": true,
   "projectFilePath": "D:\\Projects\\Algoriza\\ShipConnect\\Infrastructure\\Infrastructure.csproj",
   "expectedPackageFiles": [
@@ -83,6 +83,7 @@
     "C:\\Users\\Remonda\\.nuget\\packages\\servicestack.common\\8.8.0\\servicestack.common.8.8.0.nupkg.sha512",
     "C:\\Users\\Remonda\\.nuget\\packages\\servicestack.interfaces\\8.8.0\\servicestack.interfaces.8.8.0.nupkg.sha512",
     "C:\\Users\\Remonda\\.nuget\\packages\\servicestack.text\\8.8.0\\servicestack.text.8.8.0.nupkg.sha512",
+    "C:\\Users\\Remonda\\.nuget\\packages\\sixlabors.imagesharp\\3.1.11\\sixlabors.imagesharp.3.1.11.nupkg.sha512",
     "C:\\Users\\Remonda\\.nuget\\packages\\swashbuckle.aspnetcore\\9.0.3\\swashbuckle.aspnetcore.9.0.3.nupkg.sha512",
     "C:\\Users\\Remonda\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\9.0.3\\swashbuckle.aspnetcore.swagger.9.0.3.nupkg.sha512",
     "C:\\Users\\Remonda\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\9.0.3\\swashbuckle.aspnetcore.swaggergen.9.0.3.nupkg.sha512",

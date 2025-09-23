@@ -20,7 +20,7 @@ namespace Infrastructure.Persistence.Data
         public DbSet<PaymentMethod> PaymentMethods { get; set; }
         public DbSet<CreditDebitCardPaymentMethod> CreditCardPaymentMethods { get; set; }
         public DbSet<PayPalPaymentMethod> PayPalPaymentMethods { get; set; }
-        public DbSet<Notification> Notifications { get; set; }
+        //public DbSet<Notification> Notifications { get; set; }
         public DbSet<PaymentCourse> PaymentCourses { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Instructor> Instructors { get; set; }

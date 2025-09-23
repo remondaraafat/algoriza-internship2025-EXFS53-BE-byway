@@ -1,7 +1,7 @@
 {
   "openapi": "3.0.4",
   "info": {
-    "title": "ShipConnect API",
+    "title": "API",
     "version": "v1"
   },
   "paths": {
@@ -76,17 +76,20 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/CreateCartItemDto"
+                "type": "integer",
+                "format": "int32"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/CreateCartItemDto"
+                "type": "integer",
+                "format": "int32"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/CreateCartItemDto"
+                "type": "integer",
+                "format": "int32"
               }
             }
           }
@@ -155,18 +158,28 @@
         }
       }
     },
-    "/api/CartItem/my-cart/{userId}": {
+    "/api/CartItem/my-cart": {
       "get": {
         "tags": [
           "CartItem"
         ],
         "parameters": [
           {
-            "name": "userId",
-            "in": "path",
-            "required": true,
+            "name": "pageNumber",
+            "in": "query",
             "schema": {
-              "type": "string"
+              "type": "integer",
+              "format": "int32",
+              "default": 1
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 10
             }
           }
         ],
@@ -176,17 +189,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/GetCartItemDtoListGeneralResponse"
+                  "$ref": "#/components/schemas/GetCartItemDtoPagedResultGeneralResponse"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/GetCartItemDtoListGeneralResponse"
+                  "$ref": "#/components/schemas/GetCartItemDtoPagedResultGeneralResponse"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/GetCartItemDtoListGeneralResponse"
+                  "$ref": "#/components/schemas/GetCartItemDtoPagedResultGeneralResponse"
                 }
               }
             }
@@ -281,7 +294,6 @@
                     "format": "double"
                   },
                   "ImageFile": {
-                    "maxLength": 250,
                     "type": "string",
                     "format": "binary"
                   },
@@ -356,7 +368,6 @@
                   "Level",
                   "Price",
                   "Rating",
-                  "ReleaseDate",
                   "Title",
                   "TotalHours"
                 ],
@@ -392,17 +403,12 @@
                     "type": "integer",
                     "format": "int32"
                   },
-                  "ReleaseDate": {
-                    "type": "string",
-                    "format": "date-time"
-                  },
                   "TotalHours": {
                     "minimum": 0.5,
                     "type": "number",
                     "format": "double"
                   },
                   "ImageFile": {
-                    "maxLength": 250,
                     "type": "string",
                     "format": "binary"
                   },
@@ -438,9 +444,6 @@
                 "Rating": {
                   "style": "form"
                 },
-                "ReleaseDate": {
-                  "style": "form"
-                },
                 "TotalHours": {
                   "style": "form"
                 },
@@ -460,6 +463,375 @@
         "responses": {
           "200": {
             "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Courses/{id}": {
+      "delete": {
+        "tags": [
+          "Courses"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/StringGeneralResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StringGeneralResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StringGeneralResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Courses"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetCourseByIdDtoGeneralResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetCourseByIdDtoGeneralResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetCourseByIdDtoGeneralResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Courses/all": {
+      "get": {
+        "tags": [
+          "Courses"
+        ],
+        "parameters": [
+          {
+            "name": "pageNumber",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 1
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 10
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetAllCoursesDtoPagedResultGeneralResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetAllCoursesDtoPagedResultGeneralResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetAllCoursesDtoPagedResultGeneralResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Courses/by-category-rating": {
+      "get": {
+        "tags": [
+          "Courses"
+        ],
+        "parameters": [
+          {
+            "name": "categoryId",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "pageNumber",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 1
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 10
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetCourseByCategoryIdAndRatingSortDtoPagedResultGeneralResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetCourseByCategoryIdAndRatingSortDtoPagedResultGeneralResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetCourseByCategoryIdAndRatingSortDtoPagedResultGeneralResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Courses/count": {
+      "get": {
+        "tags": [
+          "Courses"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Int32GeneralResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Int32GeneralResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Int32GeneralResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Courses/Filter": {
+      "get": {
+        "tags": [
+          "Courses"
+        ],
+        "parameters": [
+          {
+            "name": "Name",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Rating",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "MinLectures",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "MaxLectures",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "MinPrice",
+            "in": "query",
+            "schema": {
+              "type": "number",
+              "format": "double"
+            }
+          },
+          {
+            "name": "MaxPrice",
+            "in": "query",
+            "schema": {
+              "type": "number",
+              "format": "double"
+            }
+          },
+          {
+            "name": "CategoryId",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "SortBy",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/CourseSortBy"
+            }
+          },
+          {
+            "name": "PageNumber",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "PageSize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/FilterCourseDtoPagedResultGeneralResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FilterCourseDtoPagedResultGeneralResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FilterCourseDtoPagedResultGeneralResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Courses/NumberOfCoursesPerCategory": {
+      "get": {
+        "tags": [
+          "Courses"
+        ],
+        "parameters": [
+          {
+            "name": "PageNumber",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "PageSize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/NumberOfCoursesPerCategoryDTOPagedResultGeneralResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NumberOfCoursesPerCategoryDTOPagedResultGeneralResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NumberOfCoursesPerCategoryDTOPagedResultGeneralResponse"
+                }
+              }
+            }
           }
         }
       }
@@ -780,10 +1152,30 @@
         }
       }
     },
-    "/api/Instructor/Names": {
+    "/api/Instructor/names": {
       "get": {
         "tags": [
           "Instructor"
+        ],
+        "parameters": [
+          {
+            "name": "pageNumber",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 1
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 10
+            }
+          }
         ],
         "responses": {
           "200": {
@@ -791,17 +1183,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/GetInstructorNamesDtoListGeneralResponse"
+                  "$ref": "#/components/schemas/GetInstructorNamesDtoPagedResultGeneralResponse"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/GetInstructorNamesDtoListGeneralResponse"
+                  "$ref": "#/components/schemas/GetInstructorNamesDtoPagedResultGeneralResponse"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/GetInstructorNamesDtoListGeneralResponse"
+                  "$ref": "#/components/schemas/GetInstructorNamesDtoPagedResultGeneralResponse"
                 }
               }
             }
@@ -931,20 +1323,110 @@
         "type": "integer",
         "format": "int32"
       },
-      "CreateCartItemDto": {
-        "required": [
-          "courseId",
-          "userId"
+      "CourseSortBy": {
+        "enum": [
+          1,
+          2,
+          3,
+          4
         ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "FilterCourseDto": {
         "type": "object",
         "properties": {
-          "userId": {
-            "minLength": 1,
-            "type": "string"
-          },
-          "courseId": {
+          "id": {
             "type": "integer",
             "format": "int32"
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "certificate": {
+            "type": "string",
+            "nullable": true
+          },
+          "price": {
+            "type": "number",
+            "format": "double"
+          },
+          "releaseDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "level": {
+            "$ref": "#/components/schemas/CourseLevel"
+          },
+          "rating": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "numberOfLectures": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalHours": {
+            "type": "number",
+            "format": "double"
+          },
+          "imageUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "categoryId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "instructorId": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "FilterCourseDtoPagedResult": {
+        "type": "object",
+        "properties": {
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FilterCourseDto"
+            },
+            "nullable": true
+          },
+          "totalCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageIndex": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "FilterCourseDtoPagedResultGeneralResponse": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "message": {
+            "type": "string",
+            "nullable": true
+          },
+          "data": {
+            "$ref": "#/components/schemas/FilterCourseDtoPagedResult"
           }
         },
         "additionalProperties": false
@@ -1015,6 +1497,104 @@
           },
           "data": {
             "$ref": "#/components/schemas/FilterInstructorDtoPagedResult"
+          }
+        },
+        "additionalProperties": false
+      },
+      "GetAllCoursesDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "certificate": {
+            "type": "string",
+            "nullable": true
+          },
+          "price": {
+            "type": "number",
+            "format": "double"
+          },
+          "releaseDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "level": {
+            "$ref": "#/components/schemas/CourseLevel"
+          },
+          "rating": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "numberOfLectures": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalHours": {
+            "type": "number",
+            "format": "double"
+          },
+          "imageUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "categoryId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "instructorId": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "GetAllCoursesDtoPagedResult": {
+        "type": "object",
+        "properties": {
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/GetAllCoursesDto"
+            },
+            "nullable": true
+          },
+          "totalCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageIndex": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "GetAllCoursesDtoPagedResultGeneralResponse": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "message": {
+            "type": "string",
+            "nullable": true
+          },
+          "data": {
+            "$ref": "#/components/schemas/GetAllCoursesDtoPagedResult"
           }
         },
         "additionalProperties": false
@@ -1092,6 +1672,10 @@
       "GetCartItemDto": {
         "type": "object",
         "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
           "courseId": {
             "type": "integer",
             "format": "int32"
@@ -1147,7 +1731,32 @@
         },
         "additionalProperties": false
       },
-      "GetCartItemDtoListGeneralResponse": {
+      "GetCartItemDtoPagedResult": {
+        "type": "object",
+        "properties": {
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/GetCartItemDto"
+            },
+            "nullable": true
+          },
+          "totalCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageIndex": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "GetCartItemDtoPagedResultGeneralResponse": {
         "type": "object",
         "properties": {
           "success": {
@@ -1158,11 +1767,182 @@
             "nullable": true
           },
           "data": {
+            "$ref": "#/components/schemas/GetCartItemDtoPagedResult"
+          }
+        },
+        "additionalProperties": false
+      },
+      "GetCourseByCategoryIdAndRatingSortDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "certificate": {
+            "type": "string",
+            "nullable": true
+          },
+          "price": {
+            "type": "number",
+            "format": "double"
+          },
+          "level": {
+            "$ref": "#/components/schemas/CourseLevel"
+          },
+          "rating": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "numberOfLectures": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalHours": {
+            "type": "number",
+            "format": "double"
+          },
+          "releaseDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "imageUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "categoryId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "instructorId": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "GetCourseByCategoryIdAndRatingSortDtoPagedResult": {
+        "type": "object",
+        "properties": {
+          "items": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/GetCartItemDto"
+              "$ref": "#/components/schemas/GetCourseByCategoryIdAndRatingSortDto"
             },
             "nullable": true
+          },
+          "totalCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageIndex": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "GetCourseByCategoryIdAndRatingSortDtoPagedResultGeneralResponse": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "message": {
+            "type": "string",
+            "nullable": true
+          },
+          "data": {
+            "$ref": "#/components/schemas/GetCourseByCategoryIdAndRatingSortDtoPagedResult"
+          }
+        },
+        "additionalProperties": false
+      },
+      "GetCourseByIdDto": {
+        "required": [
+          "categoryId",
+          "instructorId"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "releaseDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "certificate": {
+            "type": "string",
+            "nullable": true
+          },
+          "price": {
+            "type": "number",
+            "format": "double"
+          },
+          "level": {
+            "$ref": "#/components/schemas/CourseLevel"
+          },
+          "rating": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "numberOfLectures": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalHours": {
+            "type": "number",
+            "format": "double"
+          },
+          "imageUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "categoryId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "instructorId": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "GetCourseByIdDtoGeneralResponse": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "message": {
+            "type": "string",
+            "nullable": true
+          },
+          "data": {
+            "$ref": "#/components/schemas/GetCourseByIdDto"
           }
         },
         "additionalProperties": false
@@ -1181,7 +1961,32 @@
         },
         "additionalProperties": false
       },
-      "GetInstructorNamesDtoListGeneralResponse": {
+      "GetInstructorNamesDtoPagedResult": {
+        "type": "object",
+        "properties": {
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/GetInstructorNamesDto"
+            },
+            "nullable": true
+          },
+          "totalCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageIndex": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "GetInstructorNamesDtoPagedResultGeneralResponse": {
         "type": "object",
         "properties": {
           "success": {
@@ -1192,11 +1997,7 @@
             "nullable": true
           },
           "data": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/GetInstructorNamesDto"
-            },
-            "nullable": true
+            "$ref": "#/components/schemas/GetInstructorNamesDtoPagedResult"
           }
         },
         "additionalProperties": false
@@ -1308,6 +2109,65 @@
         },
         "additionalProperties": false
       },
+      "NumberOfCoursesPerCategoryDTO": {
+        "type": "object",
+        "properties": {
+          "categoryID": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "categoryName": {
+            "type": "string",
+            "nullable": true
+          },
+          "numberOfCourses": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "NumberOfCoursesPerCategoryDTOPagedResult": {
+        "type": "object",
+        "properties": {
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/NumberOfCoursesPerCategoryDTO"
+            },
+            "nullable": true
+          },
+          "totalCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageIndex": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "NumberOfCoursesPerCategoryDTOPagedResultGeneralResponse": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "message": {
+            "type": "string",
+            "nullable": true
+          },
+          "data": {
+            "$ref": "#/components/schemas/NumberOfCoursesPerCategoryDTOPagedResult"
+          }
+        },
+        "additionalProperties": false
+      },
       "RegisterDTO": {
         "required": [
           "confirmPassword",
@@ -1358,6 +2218,23 @@
         },
         "additionalProperties": false
       },
+      "StringGeneralResponse": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "message": {
+            "type": "string",
+            "nullable": true
+          },
+          "data": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "UserRole": {
         "enum": [
           0,
@@ -1366,6 +2243,19 @@
         "type": "integer",
         "format": "int32"
       }
+    },
+    "securitySchemes": {
+      "Bearer": {
+        "type": "apiKey",
+        "description": "Enter 'Bearer' [space] and then your token",
+        "name": "Authorization",
+        "in": "header"
+      }
     }
-  }
+  },
+  "security": [
+    {
+      "Bearer": [ ]
+    }
+  ]
 }

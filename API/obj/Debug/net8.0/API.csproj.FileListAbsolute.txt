@@ -446,3 +446,4 @@ D:\Projects\Algoriza\ShipConnect\API\bin\Debug\net8.0\Microsoft.AspNetCore.Authe
 D:\Projects\Algoriza\ShipConnect\API\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.Google.dll
 D:\Projects\Algoriza\ShipConnect\API\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.MicrosoftAccount.dll
 D:\Projects\Algoriza\ShipConnect\API\obj\Debug\net8.0\API.sourcelink.json
+D:\Projects\Algoriza\ShipConnect\API\bin\Debug\net8.0\SixLabors.ImageSharp.dll

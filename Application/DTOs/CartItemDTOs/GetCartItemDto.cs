@@ -8,6 +8,7 @@ namespace Application.DTOs.CartItemDTOs
 {
     public class GetCartItemDto
     {
+        public int Id { get; set; }
         public int CourseId { get; set; }
         public string UserId { get; set; }
 

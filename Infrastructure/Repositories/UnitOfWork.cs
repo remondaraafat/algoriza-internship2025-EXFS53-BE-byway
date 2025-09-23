@@ -17,6 +17,7 @@ namespace APICoursePlatform.UnitOfWorkContract
         private ICartItemRepository _cartItemRepository;
         private ICategoryRepository _categoryRepository;
         private ICourseRepository _courseRepository;
+        private IPaymentCourseRepository _paymentCourseRepository;
         public UnitOfWork(CoursePlatformContext context)
         {
             _context = context;
@@ -91,6 +92,15 @@ namespace APICoursePlatform.UnitOfWorkContract
                 if (_cartItemRepository == null)
                     _cartItemRepository = new CartItemRepository(_context);
                 return _cartItemRepository;
+            }
+        }
+        public IPaymentCourseRepository paymentCourseRepository
+        {
+            get
+            {
+                if (_paymentCourseRepository == null)
+                    _paymentCourseRepository = new PaymentCourseRepository(_context);
+                return _paymentCourseRepository;
             }
         }
         public async Task SaveAsync()

@@ -40,8 +40,8 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "dto",
-        "Type": "Application.DTOs.CartItemDTOs.CreateCartItemDto",
+        "Name": "CourseId",
+        "Type": "System.Int32",
         "IsRequired": true
       }
     ],
@@ -86,20 +86,25 @@
   {
     "ContainingType": "API.Controllers.CartItemController",
     "Method": "GetMyCartItems",
-    "RelativePath": "api/CartItem/my-cart/{userId}",
+    "RelativePath": "api/CartItem/my-cart",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "userId",
-        "Type": "",
-        "IsRequired": true
+        "Name": "pageNumber",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "pageSize",
+        "Type": "System.Int32",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": [
       {
-        "Type": "APICoursePlatform.Helpers.GeneralResponse\u00601[[System.Collections.Generic.List\u00601[[Application.DTOs.CartItemDTOs.GetCartItemDto, Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "Type": "APICoursePlatform.Helpers.GeneralResponse\u00601[[APICoursePlatform.Helpers.PagedResult\u00601[[Application.DTOs.CartItemDTOs.GetCartItemDto, Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -129,6 +134,145 @@
       }
     ],
     "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.CoursesController",
+    "Method": "DeleteCourse",
+    "RelativePath": "api/Courses/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "APICoursePlatform.Helpers.GeneralResponse\u00601[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "API.Controllers.CoursesController",
+    "Method": "GetCourseById",
+    "RelativePath": "api/Courses/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "APICoursePlatform.Helpers.GeneralResponse\u00601[[Application.DTOs.CourseDTOs.GetCourseByIdDto, Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "API.Controllers.CoursesController",
+    "Method": "GetAllCourses",
+    "RelativePath": "api/Courses/all",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "pageNumber",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "pageSize",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "APICoursePlatform.Helpers.GeneralResponse\u00601[[APICoursePlatform.Helpers.PagedResult\u00601[[Application.DTOs.CourseDTOs.GetAllCoursesDto, Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "API.Controllers.CoursesController",
+    "Method": "GetCoursesByCategoryAndRating",
+    "RelativePath": "api/Courses/by-category-rating",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "categoryId",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "pageNumber",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "pageSize",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "APICoursePlatform.Helpers.GeneralResponse\u00601[[APICoursePlatform.Helpers.PagedResult\u00601[[Application.DTOs.CourseDTOs.GetCourseByCategoryIdAndRatingSortDto, Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "API.Controllers.CoursesController",
+    "Method": "GetCoursesCount",
+    "RelativePath": "api/Courses/count",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "APICoursePlatform.Helpers.GeneralResponse\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
   },
   {
     "ContainingType": "API.Controllers.CoursesController",
@@ -193,6 +337,108 @@
   },
   {
     "ContainingType": "API.Controllers.CoursesController",
+    "Method": "GetFilteredCourses",
+    "RelativePath": "api/Courses/Filter",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Name",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Rating",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "MinLectures",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "MaxLectures",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "MinPrice",
+        "Type": "System.Nullable\u00601[[System.Decimal, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "MaxPrice",
+        "Type": "System.Nullable\u00601[[System.Decimal, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "CategoryId",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "SortBy",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "PageNumber",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "PageSize",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "APICoursePlatform.Helpers.GeneralResponse\u00601[[APICoursePlatform.Helpers.PagedResult\u00601[[Application.DTOs.CourseDTOs.FilterCourseDto, Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "API.Controllers.CoursesController",
+    "Method": "GetNumberOfCoursesPerCategory",
+    "RelativePath": "api/Courses/NumberOfCoursesPerCategory",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "PageNumber",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "PageSize",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "APICoursePlatform.Helpers.GeneralResponse\u00601[[APICoursePlatform.Helpers.PagedResult\u00601[[Application.DTOs.CourseDTOs.NumberOfCoursesPerCategoryDTO, Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "API.Controllers.CoursesController",
     "Method": "UpdateCourse",
     "RelativePath": "api/Courses/update",
     "HttpMethod": "PUT",
@@ -232,11 +478,6 @@
       {
         "Name": "Rating",
         "Type": "System.Int32",
-        "IsRequired": false
-      },
-      {
-        "Name": "ReleaseDate",
-        "Type": "System.DateTime",
         "IsRequired": false
       },
       {
@@ -455,14 +696,25 @@
   {
     "ContainingType": "API.Controllers.InstructorController",
     "Method": "GetInstructorNames",
-    "RelativePath": "api/Instructor/Names",
+    "RelativePath": "api/Instructor/names",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
+    "Parameters": [
+      {
+        "Name": "pageNumber",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "pageSize",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
     "ReturnTypes": [
       {
-        "Type": "APICoursePlatform.Helpers.GeneralResponse\u00601[[System.Collections.Generic.List\u00601[[Application.DTOs.InstructorDTOs.GetInstructorNamesDto, Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "Type": "APICoursePlatform.Helpers.GeneralResponse\u00601[[APICoursePlatform.Helpers.PagedResult\u00601[[Application.DTOs.InstructorDTOs.GetInstructorNamesDto, Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",

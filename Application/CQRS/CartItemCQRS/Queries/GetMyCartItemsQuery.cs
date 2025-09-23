@@ -1,4 +1,5 @@
 ﻿global using Microsoft.EntityFrameworkCore;
+using APICoursePlatform.Helpers;
 using APICoursePlatform.UnitOfWorkContract;
 using Application.DTOs.CartItemDTOs;
 using MediatR;
@@ -10,12 +11,15 @@ using System.Threading.Tasks;
 
 namespace Application.CQRS.CartItemCQRS.Queries
 {
-    public class GetMyCartItemsQuery : IRequest<List<GetCartItemDto>>
+    public class GetMyCartItemsQuery : IRequest<GeneralResponse<PagedResult<GetCartItemDto>>>
     {
         public string UserId { get; set; }
+        public int PageNumber { get; set; } = 1;
+        public int PageSize { get; set; } = 10;
     }
 
-    public class GetMyCartItemsHandler : IRequestHandler<GetMyCartItemsQuery, List<GetCartItemDto>>
+
+    public class GetMyCartItemsHandler : IRequestHandler<GetMyCartItemsQuery, GeneralResponse<PagedResult<GetCartItemDto>>>
     {
         private readonly IUnitOfWork _unitOfWork;
 
@@ -24,25 +28,45 @@ namespace Application.CQRS.CartItemCQRS.Queries
             _unitOfWork = unitOfWork;
         }
 
-        public async Task<List<GetCartItemDto>> Handle(GetMyCartItemsQuery request, CancellationToken cancellationToken)
+        public async Task<GeneralResponse<PagedResult<GetCartItemDto>>> Handle(GetMyCartItemsQuery request, CancellationToken cancellationToken)
         {
-            var cartItems = await _unitOfWork.CartItemRepository.GetWithFilterAsync(c => c.UserId == request.UserId)
-                .Select(c => new GetCartItemDto
+            try {
+                var query = _unitOfWork.CartItemRepository
+               .GetWithFilterAsync(c => c.UserId == request.UserId, request.PageNumber, request.PageSize);
+
+                var items = await query.Select(c => new GetCartItemDto
                 {
+                    Id = c.Id,
                     CourseId = c.CourseId,
                     UserId = c.UserId,
                     CourseTitle = c.Course.Title,
                     TotalHours = c.Course.TotalHours,
-                    NumOfLectures = c.Course.Lectures.Count,
+                    NumOfLectures = c.Course.Lectures.Count(l => !l.IsDeleted),
                     Price = c.Course.Price,
                     InstructorName = c.Course.Instructor.Name,
                     Level = c.Course.Level.ToString(),
                     Rating = c.Course.Rating
-                })
-                .ToListAsync(cancellationToken);
+                }).ToListAsync(cancellationToken);
 
-            return cartItems;
+                var totalCount = await _unitOfWork.CartItemRepository.CountAsync(c => c.UserId == request.UserId);
+
+                var pagedResult = new PagedResult<GetCartItemDto>
+                {
+                    Items = items,
+                    TotalCount = totalCount,
+                    PageIndex = request.PageNumber,
+                    PageSize = request.PageSize
+                };
+
+                return GeneralResponse<PagedResult<GetCartItemDto>>.SuccessResponse("Cart items retrieved successfully", pagedResult);
+
+            } catch (Exception ex)
+            {
+                return GeneralResponse<PagedResult<GetCartItemDto>>.FailResponse($"An error occurred: {ex.Message}");
+            }
+           
         }
     }
+
 }
 

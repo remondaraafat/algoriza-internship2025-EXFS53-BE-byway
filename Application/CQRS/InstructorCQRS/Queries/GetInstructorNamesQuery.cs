@@ -2,17 +2,18 @@
 using APICoursePlatform.UnitOfWorkContract;
 using Application.DTOs.InstructorDTOs;
 using MediatR;
-using System;
-using System.Collections.Generic;
+using Microsoft.EntityFrameworkCore;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Application.CQRS.InstructorCQRS.Queries
 {
-    public class GetInstructorNamesQuery : IRequest<GeneralResponse<List<GetInstructorNamesDto>>> { }
+    public class GetInstructorNamesQuery : IRequest<GeneralResponse<PagedResult<GetInstructorNamesDto>>>
+    {
+        public int PageNumber { get; set; } = 1;
+        public int PageSize { get; set; } = 10;
+    }
 
-    public class GetInstructorNamesHandler : IRequestHandler<GetInstructorNamesQuery, GeneralResponse<List<GetInstructorNamesDto>>>
+    public class GetInstructorNamesHandler : IRequestHandler<GetInstructorNamesQuery, GeneralResponse<PagedResult<GetInstructorNamesDto>>>
     {
         private readonly IUnitOfWork _unitOfWork;
 
@@ -21,13 +22,28 @@ namespace Application.CQRS.InstructorCQRS.Queries
             _unitOfWork = unitOfWork;
         }
 
-        public async Task<GeneralResponse<List<GetInstructorNamesDto>>> Handle(GetInstructorNamesQuery request, CancellationToken cancellationToken)
+        public async Task<GeneralResponse<PagedResult<GetInstructorNamesDto>>> Handle(GetInstructorNamesQuery request, CancellationToken cancellationToken)
         {
-            var items = _unitOfWork.InstructorRepository.GetAllAsync()
-                .Select(i => new GetInstructorNamesDto { Id = i.Id, Name = i.Name })
-                .ToList();
 
-            return GeneralResponse<List<GetInstructorNamesDto>>.SuccessResponse("Instructor names fetched successfully", items);
+            var items = await _unitOfWork.InstructorRepository.GetAllAsync(request.PageNumber, request.PageSize)
+                .Select(i => new GetInstructorNamesDto
+                {
+                    Id = i.Id,
+                    Name = i.Name
+                })
+                .ToListAsync(cancellationToken);
+
+            var totalCount = await _unitOfWork.InstructorRepository.CountAsync();
+
+            var pagedResult = new PagedResult<GetInstructorNamesDto>
+            {
+                Items = items,
+                TotalCount = totalCount,
+                PageIndex = request.PageNumber,
+                PageSize = request.PageSize
+            };
+
+            return GeneralResponse<PagedResult<GetInstructorNamesDto>>.SuccessResponse("Instructor names fetched successfully", pagedResult);
         }
     }
 }

@@ -1,6 +1,7 @@
-﻿using APICoursePlatform.Helpers;
+﻿global using Application.DTOs.AccountDTOs;
+using APICoursePlatform.Helpers;
 using APICoursePlatform.Models;
-using Application.DTOs.AccountDTOs;
+using Application.DTOs;
 using MediatR;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;

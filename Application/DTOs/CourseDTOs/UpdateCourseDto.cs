@@ -38,15 +38,13 @@ namespace Application.DTOs.CourseDTOs
         [Range(1, 5, ErrorMessage = "Rating must be between {1} and {2}")]
         public int Rating { get; set; }
 
-        [Required(ErrorMessage = "Release date is required")]
-        public DateTime ReleaseDate { get; set; } = DateTime.Now;
 
         [Required(ErrorMessage = "Total hours are required")]
         [Range(0.5, double.MaxValue, ErrorMessage = "Total hours must be greater than 0")]
         public double TotalHours { get; set; }
 
         [Required(ErrorMessage = "Image file is required")]
-        [MaxLength(250, ErrorMessage = "Image file name cannot exceed {1} characters")]
+        
         public IFormFile ImageFile { get; set; }
 
         [Required(ErrorMessage = "Category Id is required")]

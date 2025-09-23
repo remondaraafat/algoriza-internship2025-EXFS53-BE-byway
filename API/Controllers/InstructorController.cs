@@ -44,7 +44,7 @@ namespace API.Controllers
             return Ok(result);
         }
 
-        // 4️⃣ Update Instructor
+        //  Update Instructor
         [HttpPut("Update/{id}")]
         public async Task<ActionResult<GeneralResponse<int>>> Update(int id, [FromForm] UpdateInstructorDto dto)
         {
@@ -54,7 +54,7 @@ namespace API.Controllers
             return Ok(result);
         }
 
-        // 5️⃣ Delete Instructor
+        // 5 Delete Instructor
         [HttpDelete("{id}")]
         public async Task<ActionResult<GeneralResponse<int>>> Delete(int id)
         {
@@ -63,16 +63,24 @@ namespace API.Controllers
             return Ok(result);
         }
 
-        // 6️⃣ Get Instructor Names
-        [HttpGet("Names")]
-        public async Task<ActionResult<GeneralResponse<List<GetInstructorNamesDto>>>> GetInstructorNames()
+        // Get Instructor Names with Pagination
+        [HttpGet("names")]
+        public async Task<ActionResult<GeneralResponse<PagedResult<GetInstructorNamesDto>>>> GetInstructorNames(
+            [FromQuery] int pageNumber = 1,
+            [FromQuery] int pageSize = 10)
         {
-            var query = new GetInstructorNamesQuery();
+            var query = new GetInstructorNamesQuery
+            {
+                PageNumber = pageNumber,
+                PageSize = pageSize
+            };
+
             var result = await _mediator.Send(query);
+
             return Ok(result);
         }
 
-        // 7️⃣ Filter Instructors By Name and JobTitle
+        //  Filter Instructors By Name and JobTitle
         [HttpGet("Filter")]
         public async Task<ActionResult<GeneralResponse<PagedResult<FilterInstructorDto>>>> Filter([FromQuery] string name, [FromQuery] int? jobTitle, int pageNumber = 1, int pageSize = 10)
         {

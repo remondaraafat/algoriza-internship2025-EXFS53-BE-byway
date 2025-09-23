@@ -15,6 +15,7 @@ namespace APICoursePlatform.UnitOfWorkContract
         ICartItemRepository CartItemRepository { get; }
         ICategoryRepository categoryRepository { get; }
         ICourseRepository courseRepository { get; }
+        IPaymentCourseRepository paymentCourseRepository { get; }
         Task SaveAsync();
     }
 }

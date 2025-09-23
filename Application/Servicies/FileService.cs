@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SixLabors.ImageSharp;
 
 namespace Application.Servicies
 {
@@ -27,12 +28,24 @@ namespace Application.Servicies
             }
 
             //Extension
-            var allowedExtensions = new[] { ".jpg", ".jpeg", ".png", ".gif", ".pdf" };
+            var allowedExtensions = new[] { ".jpg", ".jpeg", ".png", ".gif" };
             var extension = Path.GetExtension(imageFile.FileName).ToLower();
             if (!allowedExtensions.Contains(extension))
             {
                 return GeneralResponse<string>.FailResponse($"Extension is not valid ({extension})", null);
             }
+            // Dimension check with ImageSharp
+            using (var image = await Image.LoadAsync(imageFile.OpenReadStream()))
+            {
+                if (image.Width != 700 || image.Height != 430)
+                {
+                    return GeneralResponse<string>.FailResponse(
+                        $"Image dimensions must be exactly 700x430 pixels. Uploaded image is {image.Width}x{image.Height}px.",
+                        null
+                    );
+                }
+            }
+
 
             //Name changing
             try

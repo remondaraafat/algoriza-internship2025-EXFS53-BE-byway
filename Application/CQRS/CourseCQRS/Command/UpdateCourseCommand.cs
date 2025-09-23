@@ -53,7 +53,6 @@ namespace Application.CQRS.CourseCQRS.Command
             course.Price = dto.Price;
             course.Level = dto.Level;
             course.Rating = dto.Rating;
-            course.ReleaseDate = dto.ReleaseDate;
             course.TotalHours = dto.TotalHours;
             course.ImageUrl = uploadResult.Data;
             course.CategoryId = dto.CategoryId;
