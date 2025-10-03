@@ -16,6 +16,10 @@ namespace APICoursePlatform.UnitOfWorkContract
         ICategoryRepository categoryRepository { get; }
         ICourseRepository courseRepository { get; }
         IPaymentCourseRepository paymentCourseRepository { get; }
+        IPaymentRepository paymentRepository { get; }
+        IPayPalPaymentMethodRepository payPalMethodRepository { get; }
+        ICreditDebitCardPaymentMethodRepository creditDebitCardPaymentMethodRepository { get; }
+        ILectureRepository lectureRepository { get; }
         Task SaveAsync();
     }
 }

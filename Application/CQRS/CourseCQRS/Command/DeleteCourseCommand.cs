@@ -33,6 +33,14 @@ namespace Application.CQRS.CourseCQRS.Command
                 {
                     return GeneralResponse<string>.FailResponse("Course not found.");
                 }
+                // Check if course has lectures
+                var hasLectures = await _unitOfWork.lectureRepository
+                .GetWithFilterAsync(l => l.CourseId == request.Id)
+                .AnyAsync(cancellationToken);
+
+                if (hasLectures)
+                    return GeneralResponse<string>.FailResponse("Cannot delete course. It still contains lectures.");
+
                 // Check if course has enrolled users in PaymentCourse
                 var hasEnrolledUsers = await _unitOfWork.paymentCourseRepository
                     .GetWithFilterAsync(pc => pc.CourseId == request.Id)

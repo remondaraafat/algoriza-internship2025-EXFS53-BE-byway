@@ -35,14 +35,15 @@ namespace API
             // CORS
             builder.Services.AddCors(options =>
             {
-                options.AddPolicy("AllowAngularApp", policy =>
+                options.AddPolicy("AllowFrontendApp", policy =>
                 {
-                    policy.WithOrigins("http://localhost:4200")
+                    policy.WithOrigins("http://localhost:5173") 
                           .AllowAnyHeader()
                           .AllowAnyMethod()
                           .AllowCredentials();
                 });
             });
+
 
             // SignalR
             builder.Services.AddSignalR();
@@ -70,7 +71,8 @@ namespace API
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-            app.UseCors("AllowAngularApp");
+            app.UseCors("AllowFrontendApp");
+
 
             app.UseAuthentication();
             app.UseAuthorization();

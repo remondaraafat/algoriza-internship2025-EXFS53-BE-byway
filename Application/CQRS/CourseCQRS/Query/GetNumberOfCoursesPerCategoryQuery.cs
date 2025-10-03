@@ -40,6 +40,7 @@ namespace Application.CQRS.CourseCQRS.Query
                     {
                         CategoryID = c.Id,
                         CategoryName = c.Name,
+                        CategoryImage= c.ImageUrl,
                         NumberOfCourses = c.Courses.Count(course => !course.IsDeleted)
                     }).ToListAsync(cancellationToken);
 

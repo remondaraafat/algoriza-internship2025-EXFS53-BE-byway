@@ -9,10 +9,10 @@ namespace Application.DTOs.CartItemDTOs
 {
     public class CreateCartItemDto
     {
-        [Required]
+        [Required(ErrorMessage = "UserId is required.")]
         public string UserId { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "CourseId is required.")]
         public int CourseId { get; set; }
     }
 }

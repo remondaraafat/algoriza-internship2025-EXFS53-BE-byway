@@ -9,7 +9,7 @@ using System.Security.Claims;
 
 namespace API.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "User")]
     [Route("api/[controller]")]
     [ApiController]
     public class CartItemController : ControllerBase

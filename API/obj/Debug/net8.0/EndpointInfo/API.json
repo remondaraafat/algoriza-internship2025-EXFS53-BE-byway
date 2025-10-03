@@ -239,6 +239,35 @@
         }
       }
     },
+    "/api/Categories/Count": {
+      "get": {
+        "tags": [
+          "Categories"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Int32GeneralResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Int32GeneralResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Int32GeneralResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/Courses/create": {
       "post": {
         "tags": [
@@ -1293,6 +1322,365 @@
           }
         }
       }
+    },
+    "/api/Lecture": {
+      "post": {
+        "tags": [
+          "Lecture"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateLectuerDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateLectuerDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateLectuerDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateLectuerDtoGeneralResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateLectuerDtoGeneralResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateLectuerDtoGeneralResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Lecture/{id}": {
+      "put": {
+        "tags": [
+          "Lecture"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateLectureDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateLectureDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateLectureDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/UpdateLectureDtoGeneralResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UpdateLectureDtoGeneralResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UpdateLectureDtoGeneralResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Lecture"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/StringGeneralResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StringGeneralResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StringGeneralResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Lecture/Course/{courseId}": {
+      "get": {
+        "tags": [
+          "Lecture"
+        ],
+        "parameters": [
+          {
+            "name": "courseId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "pageNumber",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 1
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 10
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetLectureByCourseIdDtoPagedResultGeneralResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetLectureByCourseIdDtoPagedResultGeneralResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetLectureByCourseIdDtoPagedResultGeneralResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Payment/TotalForCurrentMonth": {
+      "get": {
+        "tags": [
+          "Payment"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/DecimalGeneralResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DecimalGeneralResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DecimalGeneralResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Payment/paypal": {
+      "post": {
+        "tags": [
+          "Payment"
+        ],
+        "parameters": [
+          {
+            "name": "paypalEmail",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreatePaymentDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreatePaymentDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreatePaymentDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/StringGeneralResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StringGeneralResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StringGeneralResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Payment/credit-debit-card": {
+      "post": {
+        "tags": [
+          "Payment"
+        ],
+        "parameters": [
+          {
+            "name": "Country",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "maxLength": 50,
+              "pattern": "^[a-zA-Z\\s]+$",
+              "type": "string"
+            }
+          },
+          {
+            "name": "State",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "maxLength": 100,
+              "pattern": "^[a-zA-Z\\s]+$",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateCreditDebitCardPaymentMethodDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateCreditDebitCardPaymentMethodDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateCreditDebitCardPaymentMethodDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/StringGeneralResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StringGeneralResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StringGeneralResponse"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
@@ -1332,6 +1720,129 @@
         ],
         "type": "integer",
         "format": "int32"
+      },
+      "CreateCreditDebitCardPaymentMethodDto": {
+        "required": [
+          "cardName",
+          "cardNumber",
+          "cvv",
+          "expiry"
+        ],
+        "type": "object",
+        "properties": {
+          "cardName": {
+            "maxLength": 50,
+            "minLength": 1,
+            "type": "string"
+          },
+          "cardNumber": {
+            "maxLength": 20,
+            "minLength": 1,
+            "pattern": "^\\d{13,19}$",
+            "type": "string"
+          },
+          "expiry": {
+            "maxLength": 7,
+            "minLength": 1,
+            "pattern": "^(0[1-9]|1[0-2])/(?:[0-9]{2}|[0-9]{4})$",
+            "type": "string"
+          },
+          "cvv": {
+            "maxLength": 4,
+            "minLength": 1,
+            "pattern": "^\\d{3,4}$",
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreateLectuerDto": {
+        "required": [
+          "courseId",
+          "durationMinutes",
+          "order",
+          "title"
+        ],
+        "type": "object",
+        "properties": {
+          "title": {
+            "maxLength": 200,
+            "minLength": 1,
+            "type": "string"
+          },
+          "order": {
+            "maximum": 2147483647,
+            "minimum": 1,
+            "type": "integer",
+            "format": "int32"
+          },
+          "durationMinutes": {
+            "maximum": 120,
+            "minimum": 1,
+            "type": "integer",
+            "format": "int32"
+          },
+          "courseId": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreateLectuerDtoGeneralResponse": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "message": {
+            "type": "string",
+            "nullable": true
+          },
+          "data": {
+            "$ref": "#/components/schemas/CreateLectuerDto"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreatePaymentDto": {
+        "required": [
+          "country",
+          "state"
+        ],
+        "type": "object",
+        "properties": {
+          "country": {
+            "maxLength": 50,
+            "minLength": 1,
+            "pattern": "^[a-zA-Z\\s]+$",
+            "type": "string"
+          },
+          "state": {
+            "maxLength": 100,
+            "minLength": 1,
+            "pattern": "^[a-zA-Z\\s]+$",
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "DecimalGeneralResponse": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "message": {
+            "type": "string",
+            "nullable": true
+          },
+          "data": {
+            "type": "number",
+            "format": "double"
+          }
+        },
+        "additionalProperties": false
       },
       "FilterCourseDto": {
         "type": "object",
@@ -1885,6 +2396,12 @@
             "type": "string",
             "nullable": true
           },
+          "isBought": {
+            "type": "boolean"
+          },
+          "isInCart": {
+            "type": "boolean"
+          },
           "description": {
             "type": "string",
             "nullable": true
@@ -2002,6 +2519,73 @@
         },
         "additionalProperties": false
       },
+      "GetLectureByCourseIdDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "order": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "durationMinutes": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "courseId": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "GetLectureByCourseIdDtoPagedResult": {
+        "type": "object",
+        "properties": {
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/GetLectureByCourseIdDto"
+            },
+            "nullable": true
+          },
+          "totalCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageIndex": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "GetLectureByCourseIdDtoPagedResultGeneralResponse": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "message": {
+            "type": "string",
+            "nullable": true
+          },
+          "data": {
+            "$ref": "#/components/schemas/GetLectureByCourseIdDtoPagedResult"
+          }
+        },
+        "additionalProperties": false
+      },
       "GetOneInstructorDto": {
         "type": "object",
         "properties": {
@@ -2102,7 +2686,7 @@
             "format": "email"
           },
           "password": {
-            "minLength": 1,
+            "minLength": 6,
             "type": "string",
             "format": "password"
           }
@@ -2117,6 +2701,10 @@
             "format": "int32"
           },
           "categoryName": {
+            "type": "string",
+            "nullable": true
+          },
+          "categoryImage": {
             "type": "string",
             "nullable": true
           },
@@ -2231,6 +2819,60 @@
           "data": {
             "type": "string",
             "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UpdateLectureDto": {
+        "required": [
+          "courseId",
+          "durationMinutes",
+          "id",
+          "order",
+          "title"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "title": {
+            "maxLength": 200,
+            "minLength": 1,
+            "type": "string"
+          },
+          "order": {
+            "maximum": 2147483647,
+            "minimum": 1,
+            "type": "integer",
+            "format": "int32"
+          },
+          "durationMinutes": {
+            "maximum": 120,
+            "minimum": 1,
+            "type": "integer",
+            "format": "int32"
+          },
+          "courseId": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "UpdateLectureDtoGeneralResponse": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "message": {
+            "type": "string",
+            "nullable": true
+          },
+          "data": {
+            "$ref": "#/components/schemas/UpdateLectureDto"
           }
         },
         "additionalProperties": false

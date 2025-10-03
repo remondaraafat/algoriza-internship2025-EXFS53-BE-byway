@@ -10,6 +10,7 @@ namespace Application.DTOs.CourseDTOs
     {
         public int CategoryID { get; set; } 
         public string? CategoryName { get; set; }
+        public string? CategoryImage { get; set; }
         public int NumberOfCourses { get; set; }
     }
 }

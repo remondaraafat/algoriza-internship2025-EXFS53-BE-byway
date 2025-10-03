@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers
 {
+
     [Route("api/[controller]")]
     [ApiController]
     public class CategoriesController : ControllerBase
@@ -27,6 +28,13 @@ namespace API.Controllers
 
             var result = await _mediator.Send(query);
 
+            return Ok(result);
+        }
+        [HttpGet("Count")]
+        public async Task<ActionResult<GeneralResponse<int>>> GetCategoriesCount()
+        {
+            var query = new GetCategoriesCountQuery();
+            var result = await _mediator.Send(query);
             return Ok(result);
         }
     }

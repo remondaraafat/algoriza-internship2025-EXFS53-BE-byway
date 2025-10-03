@@ -10,6 +10,7 @@ public class Payment : BaseEntity
     public string Country { get; set; }
     [Required, MaxLength(100)]
     public string State { get; set; }
+    public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 
     [Column(TypeName = "decimal(18,2)")]
     public decimal Amount { get; set; }

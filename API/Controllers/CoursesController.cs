@@ -2,8 +2,11 @@
 using Application.CQRS.CourseCQRS.Command;
 using Application.CQRS.CourseCQRS.Query;
 using Application.DTOs.CourseDTOs;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
 namespace API.Controllers
 {
     [Route("api/[controller]")]
@@ -17,6 +20,7 @@ namespace API.Controllers
             _mediator = mediator;
         }
         //create course
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         [Route("create")]
         public async Task<IActionResult> CreateCourse([FromForm] CreateCourseDto dto)
@@ -28,6 +32,7 @@ namespace API.Controllers
             return Ok(result);
         }
         //update course
+        [Authorize(Roles = "Admin")]
         [HttpPut("update")]
         public async Task<IActionResult> UpdateCourse([FromForm] UpdateCourseDto dto)
         {
@@ -38,6 +43,7 @@ namespace API.Controllers
             return Ok(response);
         }
         //delete course by id
+        [Authorize(Roles = "Admin")]
         [HttpDelete("{id}")]
         public async Task<ActionResult<GeneralResponse<string>>> DeleteCourse(int id)
         {
@@ -66,8 +72,9 @@ namespace API.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<GeneralResponse<GetCourseByIdDto>>> GetCourseById(int id)
         {
-            var result = await _mediator.Send(new GetCourseByIdQuery{Id=id});
-
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier)
+              ?? User.FindFirstValue(JwtRegisteredClaimNames.Sub);
+            var result = await _mediator.Send(new GetCourseByIdQuery{Id=id,UserId=userId});
             if (!result.Success)
                 return NotFound(result);
 

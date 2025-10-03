@@ -16,6 +16,7 @@ using System.Text;
 
 namespace APICoursePlatform.Controllers
 {
+   
     [Route("api/[controller]")]
     [ApiController]
     public class AccountController : ControllerBase

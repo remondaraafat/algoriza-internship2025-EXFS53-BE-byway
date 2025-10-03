@@ -255,7 +255,6 @@ D:\Projects\Algoriza\ShipConnect\API\obj\Debug\net8.0\API.GeneratedMSBuildEditor
 D:\Projects\Algoriza\ShipConnect\API\obj\Debug\net8.0\API.AssemblyInfoInputs.cache
 D:\Projects\Algoriza\ShipConnect\API\obj\Debug\net8.0\API.AssemblyInfo.cs
 D:\Projects\Algoriza\ShipConnect\API\obj\Debug\net8.0\API.csproj.CoreCompileInputs.cache
-D:\Projects\Algoriza\ShipConnect\API\obj\Debug\net8.0\API.MvcApplicationPartsAssemblyInfo.cs
 D:\Projects\Algoriza\ShipConnect\API\obj\Debug\net8.0\API.MvcApplicationPartsAssemblyInfo.cache
 D:\Projects\Algoriza\ShipConnect\API\obj\Debug\net8.0\API.dll
 D:\Projects\Algoriza\ShipConnect\API\obj\Debug\net8.0\refint\API.dll
@@ -447,3 +446,4 @@ D:\Projects\Algoriza\ShipConnect\API\bin\Debug\net8.0\Microsoft.AspNetCore.Authe
 D:\Projects\Algoriza\ShipConnect\API\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.MicrosoftAccount.dll
 D:\Projects\Algoriza\ShipConnect\API\obj\Debug\net8.0\API.sourcelink.json
 D:\Projects\Algoriza\ShipConnect\API\bin\Debug\net8.0\SixLabors.ImageSharp.dll
+D:\Projects\Algoriza\ShipConnect\API\obj\Debug\net8.0\API.MvcApplicationPartsAssemblyInfo.cs

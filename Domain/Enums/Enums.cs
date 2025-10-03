@@ -23,6 +23,18 @@
             Expert,
             AllLevels
         }
+        public enum PaymentMethodType
+        {
+            PayPal = 1,
+            CreditDebitCard = 2
+        }
+        public enum CourseSortBy
+        {
+            Latest = 1,
+            Oldest = 2,
+            HighestPrice = 3,
+            LowestPrice = 4
+        }
         //public enum NotificationType
         //{
         //    General,
@@ -34,12 +46,6 @@
         //    ShipmentDelivered,
         //    RatingReceived
         //}
-        public enum CourseSortBy
-        {
-            Latest = 1,
-            Oldest = 2,
-            HighestPrice = 3,
-            LowestPrice = 4
-        }
+
     }
 }

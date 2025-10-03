@@ -1,8 +1,9 @@
-﻿using System.Linq.Expressions;
+﻿using APICoursePlatform.RepositoryContract;
 using Domain.Common;
 using Infrastructure.Persistence.Data;
 using Microsoft.EntityFrameworkCore;
-using APICoursePlatform.RepositoryContract;
+using System.Linq.Expressions;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace APICoursePlatform.Repository
 {
@@ -61,7 +62,12 @@ namespace APICoursePlatform.Repository
 
         public async Task<bool> ExistsAsync(Expression<Func<T, bool>> predicate)
         {
-            return await _dbSet.AnyAsync(predicate);
+            IQueryable<T> query = _dbSet;
+            if (typeof(IBaseModel).IsAssignableFrom(typeof(T)))
+            {
+                query = query.Where(e => EF.Property<bool>(e, "IsDeleted") == false).AsNoTracking();
+            }
+            return await query.AnyAsync(predicate);
         }
 
         public async Task<int> CountAsync(Expression<Func<T, bool>> predicate = null)

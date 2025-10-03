@@ -93,12 +93,12 @@ namespace APICoursePlatform.CQRS.Register.Commands
             //email to user
 
             await _emailService.SendEmailAsync(
-     toEmail: request.DTO.Email,
-     subject: "Welcome to Course Platform!",
-     body: $@"
+    toEmail: request.DTO.Email,
+    subject: "Welcome to Course Platform!",
+    body: $@"
         <div style='max-width:600px;margin:auto;font-family:Arial;padding:30px;
                     background:#f9f9f9;border-radius:10px;border:1px solid #ddd;color:#333'>
-            <h1 style='color:#2a7ae2;text-align:center'>Your]! 🎉Name [,aboard Welcome</h1>
+            <h1 style='color:#2a7ae2;text-align:center'>🎉 Welcome aboard, {request.DTO.FirstName}!</h1>
             <p style='font-size:16px;text-align:center'>
                 🎓 Learning journey starts here, Let’s grow your skills together
             </p>
@@ -107,7 +107,9 @@ namespace APICoursePlatform.CQRS.Register.Commands
                 © {DateTime.Now.Year} Course Platform. All rights reserved.
             </footer>
         </div>"
- );
+);
+
+ 
 
 
             return GeneralResponse<List<string>>.SuccessResponse("User registered successfully");

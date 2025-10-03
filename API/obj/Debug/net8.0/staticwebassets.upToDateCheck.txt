@@ -1,4 +1,8 @@
+wwwroot\images\backend.png
 wwwroot\images\default-user.png
+wwwroot\images\frontend.png
+wwwroot\images\fullstack.png
+wwwroot\images\ux_uiDesign.png
 wwwroot\uploads\0deeaf58-481c-4249-a8c2-4b780c7ecb57.png
 wwwroot\uploads\2de8df55-775b-4cf2-a067-1e54ffa4dfec.jpg
 wwwroot\uploads\45e34feb-d798-48e0-b627-34937f8c9f7b.png

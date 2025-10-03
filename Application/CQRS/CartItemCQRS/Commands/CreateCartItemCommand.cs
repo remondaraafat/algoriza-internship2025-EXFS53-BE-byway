@@ -34,6 +34,12 @@ namespace Application.CQRS.CartItemCQRS.Commands
             if (exists)
                 return GeneralResponse<GetCartItemDto>.FailResponse("Course already exists in cart");
 
+            bool isBought = await _unitOfWork.paymentCourseRepository
+                .ExistsAsync(pc => pc.CourseId == request.Dto.CourseId && pc.Payment.UserId == request.Dto.UserId);
+
+            if (isBought)
+                return GeneralResponse<GetCartItemDto>.FailResponse("Course already Bought");
+
             var cartItem = new CartItem
             {
                 UserId = request.Dto.UserId,

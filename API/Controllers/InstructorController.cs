@@ -1,6 +1,7 @@
 ﻿using Application.CQRS.InstructorCQRS.Commands;
 using Application.CQRS.InstructorCQRS.Queries;
 using Application.DTOs.InstructorDTOs;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using static APICoursePlatform.Enums.Enums;
@@ -18,6 +19,7 @@ namespace API.Controllers
             _mediator = mediator;
         }
         // 1️⃣ Get All Instructors (Paged)
+        [Authorize(Roles = "Admin")]
         [HttpGet("GetAll")]
         public async Task<ActionResult<GeneralResponse<PagedResult<GetAllInstructorsDto>>>> GetAll(int pageNumber = 1, int pageSize = 10)
         {
@@ -27,6 +29,7 @@ namespace API.Controllers
         }
 
         // 2️⃣ Get Instructor By Id
+        
         [HttpGet("{id}")]
         public async Task<ActionResult<GeneralResponse<GetOneInstructorDto>>> GetById(int id)
         {
@@ -37,6 +40,7 @@ namespace API.Controllers
 
         // 3️⃣ Create Instructor
         [HttpPost("Create")]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult<GeneralResponse<int>>> Create([FromForm] CreateInstructorDto dto)
         {
             var command = new CreateInstructorCommand { DTO = dto };
@@ -45,6 +49,7 @@ namespace API.Controllers
         }
 
         //  Update Instructor
+        [Authorize(Roles = "Admin")]
         [HttpPut("Update/{id}")]
         public async Task<ActionResult<GeneralResponse<int>>> Update(int id, [FromForm] UpdateInstructorDto dto)
         {
@@ -55,6 +60,7 @@ namespace API.Controllers
         }
 
         // 5 Delete Instructor
+        [Authorize(Roles = "Admin")]
         [HttpDelete("{id}")]
         public async Task<ActionResult<GeneralResponse<int>>> Delete(int id)
         {
@@ -64,6 +70,7 @@ namespace API.Controllers
         }
 
         // Get Instructor Names with Pagination
+        [Authorize(Roles = "Admin")]
         [HttpGet("names")]
         public async Task<ActionResult<GeneralResponse<PagedResult<GetInstructorNamesDto>>>> GetInstructorNames(
             [FromQuery] int pageNumber = 1,

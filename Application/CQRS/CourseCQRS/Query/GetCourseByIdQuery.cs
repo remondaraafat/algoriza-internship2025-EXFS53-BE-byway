@@ -14,7 +14,7 @@ namespace Application.CQRS.CourseCQRS.Query
     {
         public int Id { get; set; }
 
-
+        public string UserId { get; set; }
     }
 
     public class GetCourseByIdQueryHandler : IRequestHandler<GetCourseByIdQuery, GeneralResponse<GetCourseByIdDto>>
@@ -35,6 +35,17 @@ namespace Application.CQRS.CourseCQRS.Query
 
             if (course == null)
                 return GeneralResponse<GetCourseByIdDto>.FailResponse("Course not found");
+            // Check if course already purchased by user
+            bool isBought = await _unitOfWork.paymentCourseRepository
+                .ExistsAsync(pc => pc.CourseId == request.Id && pc.Payment.UserId == request.UserId);
+            if (isBought)
+                return GeneralResponse<GetCourseByIdDto>.FailResponse("You already purchased this course.");
+
+            // Check if course already in user's cart
+            bool isInCart = await _unitOfWork.CartItemRepository
+                .ExistsAsync(c => c.CourseId == request.Id && c.UserId == request.UserId);
+            if (isInCart)
+                return GeneralResponse<GetCourseByIdDto>.FailResponse("You already have this course in your cart.");
 
             var dto = new GetCourseByIdDto
             {
@@ -50,7 +61,10 @@ namespace Application.CQRS.CourseCQRS.Query
                 ImageUrl = course.ImageUrl,
                 CategoryId = course.CategoryId,
                 InstructorId = course.InstructorId,
-                ReleaseDate=course.ReleaseDate
+                ReleaseDate=course.ReleaseDate,
+                IsBought = isBought,
+                IsInCart= isInCart
+
             };
 
             return GeneralResponse<GetCourseByIdDto>.SuccessResponse("Course retrieved successfully", dto);

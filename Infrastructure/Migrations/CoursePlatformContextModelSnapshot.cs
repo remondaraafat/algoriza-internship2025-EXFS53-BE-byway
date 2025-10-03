@@ -97,44 +97,6 @@ namespace Infrastructure.Migrations
                     b.ToTable("AspNetUsers", (string)null);
                 });
 
-            modelBuilder.Entity("APICoursePlatform.Models.Notification", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("Message")
-                        .IsRequired()
-                        .HasMaxLength(1000)
-                        .HasColumnType("nvarchar(1000)");
-
-                    b.Property<string>("RecipientId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("Title")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
-
-                    b.Property<int>("Type")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("RecipientId");
-
-                    b.ToTable("Notifications");
-                });
-
             modelBuilder.Entity("Domain.Models.CartItem", b =>
                 {
                     b.Property<int>("Id")
@@ -229,8 +191,8 @@ namespace Infrastructure.Migrations
                     b.Property<int>("Rating")
                         .HasColumnType("int");
 
-                    b.Property<DateOnly>("ReleaseDate")
-                        .HasColumnType("date");
+                    b.Property<DateTime>("ReleaseDate")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Title")
                         .IsRequired()
@@ -355,10 +317,9 @@ namespace Infrastructure.Migrations
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
-                    b.Property<string>("MethodName")
-                        .IsRequired()
+                    b.Property<int>("MethodType")
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -516,6 +477,9 @@ namespace Infrastructure.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
@@ -576,17 +540,6 @@ namespace Infrastructure.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.ToTable("PayPalPaymentMethods", (string)null);
-                });
-
-            modelBuilder.Entity("APICoursePlatform.Models.Notification", b =>
-                {
-                    b.HasOne("APICoursePlatform.Models.ApplicationUser", "Recipient")
-                        .WithMany()
-                        .HasForeignKey("RecipientId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Recipient");
                 });
 
             modelBuilder.Entity("Domain.Models.CartItem", b =>

@@ -13,7 +13,8 @@ namespace Application.DTOs.CourseDTOs
     {
         public int Id { get; set; }
         public string Title { get; set; }
-
+        public bool IsBought { get; set; }
+        public bool IsInCart { get; set; }
         public string Description { get; set; }
         public DateTime ReleaseDate { get; set; }
 
