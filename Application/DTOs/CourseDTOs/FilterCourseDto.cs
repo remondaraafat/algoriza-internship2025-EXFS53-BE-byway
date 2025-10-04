@@ -12,7 +12,7 @@ namespace Application.DTOs.CourseDTOs
         public int Id { get; set; }
         
         public string Title { get; set; }
-
+        public string InstructorName { get; set; }
         public string Description { get; set; }
 
 

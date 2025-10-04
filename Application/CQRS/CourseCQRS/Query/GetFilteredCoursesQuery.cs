@@ -21,7 +21,7 @@ namespace Application.CQRS.CourseCQRS.Query
         public decimal? MaxPrice { get; set; }
         public int? CategoryId { get; set; }
 
-        // ✅ Now it's an Enum
+        // Now it's an Enum
         public CourseSortBy SortBy { get; set; } = CourseSortBy.Latest;
 
         public int PageNumber { get; set; } = 1;
@@ -89,6 +89,7 @@ namespace Application.CQRS.CourseCQRS.Query
                         Title = c.Title,
                         Description = c.Description,
                         Certificate = c.Certificate,
+                        InstructorName = c.Instructor.Name,
                         Price = c.Price,
                         Level = c.Level,
                         Rating = c.Rating,
