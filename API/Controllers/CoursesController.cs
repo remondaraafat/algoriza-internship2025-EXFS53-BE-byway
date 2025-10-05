@@ -68,18 +68,31 @@ namespace API.Controllers
             return Ok(result);
         }
 
-        //get course by id
+        // Get course by id
         [HttpGet("{id}")]
         public async Task<ActionResult<GeneralResponse<GetCourseByIdDto>>> GetCourseById(int id)
         {
-            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier)
-              ?? User.FindFirstValue(JwtRegisteredClaimNames.Sub);
-            var result = await _mediator.Send(new GetCourseByIdQuery{Id=id,UserId=userId});
+            string? userId = null;
+
+            // Check if user is authenticated before trying to read claims
+            if (User.Identity?.IsAuthenticated == true)
+            {
+                userId = User.FindFirstValue(ClaimTypes.NameIdentifier)
+                         ?? User.FindFirstValue(JwtRegisteredClaimNames.Sub);
+            }
+
+            var result = await _mediator.Send(new GetCourseByIdQuery
+            {
+                Id = id,
+                UserId = userId // could be null if user not logged in
+            });
+
             if (!result.Success)
                 return NotFound(result);
 
             return Ok(result);
         }
+
         //get courses by category id and sort by rating
         [HttpGet("by-category-rating")]
         public async Task<ActionResult<GeneralResponse<PagedResult<GetCourseByCategoryIdAndRatingSortDto>>>>

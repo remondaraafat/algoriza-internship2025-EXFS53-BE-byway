@@ -35,39 +35,44 @@ namespace Application.CQRS.CourseCQRS.Query
 
             if (course == null)
                 return GeneralResponse<GetCourseByIdDto>.FailResponse("Course not found");
-            // Check if course already purchased by user
-            bool isBought = await _unitOfWork.paymentCourseRepository
-                .ExistsAsync(pc => pc.CourseId == request.Id && pc.Payment.UserId == request.UserId);
-            if (isBought)
-                return GeneralResponse<GetCourseByIdDto>.FailResponse("You already purchased this course.");
 
-            // Check if course already in user's cart
-            bool isInCart = await _unitOfWork.CartItemRepository
-                .ExistsAsync(c => c.CourseId == request.Id && c.UserId == request.UserId);
-            if (isInCart)
-                return GeneralResponse<GetCourseByIdDto>.FailResponse("You already have this course in your cart.");
-
-            var dto = new GetCourseByIdDto
+            bool isBought = false;
+            bool isInCart = false;
+            if (request.UserId != null)
             {
-                Id = course.Id,
-                Title = course.Title,
-                Description = course.Description,
-                Certificate = course.Certificate,
-                InstructorName = course.Instructor.Name,
-                CategoryName = course.Category.Name,
-                Price = course.Price,
-                Level = course.Level,
-                Rating = course.Rating,
-                NumberOfLectures = course.Lectures.Count(l => !l.IsDeleted),
-                TotalHours = course.TotalHours,
-                ImageUrl = course.ImageUrl,
-                CategoryId = course.CategoryId,
-                InstructorId = course.InstructorId,
-                ReleaseDate=course.ReleaseDate,
-                IsBought = isBought,
-                IsInCart= isInCart
+                // Check if course already purchased by user
+                 isBought = await _unitOfWork.paymentCourseRepository
+                    .ExistsAsync(pc => pc.CourseId == request.Id && pc.Payment.UserId == request.UserId);
 
-            };
+
+                // Check if course already in user's cart
+                 isInCart = await _unitOfWork.CartItemRepository
+                    .ExistsAsync(c => c.CourseId == request.Id && c.UserId == request.UserId);
+            }
+
+
+
+                var dto = new GetCourseByIdDto
+                {
+                    Id = course.Id,
+                    Title = course.Title,
+                    Description = course.Description,
+                    Certificate = course.Certificate,
+                    InstructorName = course.Instructor?.Name,
+                    CategoryName = course.Category?.Name,
+                    Price = course.Price,
+                    Level = course.Level,
+                    Rating = course.Rating,
+                    NumberOfLectures = course.Lectures.Count(l => !l.IsDeleted),
+                    TotalHours = course.TotalHours,
+                    ImageUrl = course.ImageUrl,
+                    CategoryId = course.CategoryId,
+                    InstructorId = course.InstructorId,
+                    ReleaseDate = course.ReleaseDate,
+                    IsBought = isBought,
+                    IsInCart = isInCart
+
+                };
 
             return GeneralResponse<GetCourseByIdDto>.SuccessResponse("Course retrieved successfully", dto);
         }

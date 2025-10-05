@@ -1855,6 +1855,14 @@
             "type": "string",
             "nullable": true
           },
+          "instructorName": {
+            "type": "string",
+            "nullable": true
+          },
+          "categoryName": {
+            "type": "string",
+            "nullable": true
+          },
           "description": {
             "type": "string",
             "nullable": true
@@ -2024,6 +2032,14 @@
             "nullable": true
           },
           "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "instructorName": {
+            "type": "string",
+            "nullable": true
+          },
+          "categoryName": {
             "type": "string",
             "nullable": true
           },
@@ -2298,6 +2314,14 @@
             "type": "string",
             "nullable": true
           },
+          "instructorName": {
+            "type": "string",
+            "nullable": true
+          },
+          "categoryName": {
+            "type": "string",
+            "nullable": true
+          },
           "certificate": {
             "type": "string",
             "nullable": true
@@ -2409,6 +2433,14 @@
           "releaseDate": {
             "type": "string",
             "format": "date-time"
+          },
+          "instructorName": {
+            "type": "string",
+            "nullable": true
+          },
+          "categoryName": {
+            "type": "string",
+            "nullable": true
           },
           "certificate": {
             "type": "string",
