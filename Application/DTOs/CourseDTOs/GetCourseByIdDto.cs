@@ -17,7 +17,8 @@ namespace Application.DTOs.CourseDTOs
         public bool IsInCart { get; set; }
         public string Description { get; set; }
         public DateTime ReleaseDate { get; set; }
-
+        public string InstructorName { get; set; }
+        public string CategoryName { get; set; }
         public string Certificate { get; set; }
 
      

@@ -13,6 +13,7 @@ namespace Application.DTOs.CourseDTOs
         
         public string Title { get; set; }
         public string InstructorName { get; set; }
+        public string CategoryName { get; set; }
         public string Description { get; set; }
 
 

@@ -43,6 +43,7 @@ namespace Application.CQRS.CourseCQRS.Query
                     Description = c.Description,
                     Certificate = c.Certificate,
                     InstructorName = c.Instructor.Name,
+                    CategoryName = c.Category.Name,
                     Price = c.Price,
                     Level = c.Level,
                     Rating = c.Rating,
