@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "D:\\Projects\\Algoriza\\ShipConnect\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{8F216FB3-E0A0-AFEA-275A-4728126B9DB8}|Application\\Application.csproj|d:\\projects\\algoriza\\shipconnect\\application\\cqrs\\coursecqrs\\query\\getallcoursesquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F216FB3-E0A0-AFEA-275A-4728126B9DB8}|Application\\Application.csproj|solutionrelative:application\\cqrs\\coursecqrs\\query\\getallcoursesquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{8F216FB3-E0A0-AFEA-275A-4728126B9DB8}|Application\\Application.csproj|d:\\projects\\algoriza\\shipconnect\\application\\cqrs\\coursecqrs\\query\\getcoursebyidquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8F216FB3-E0A0-AFEA-275A-4728126B9DB8}|Application\\Application.csproj|solutionrelative:application\\cqrs\\coursecqrs\\query\\getcoursebyidquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -17,10 +21,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{8F216FB3-E0A0-AFEA-275A-4728126B9DB8}|Application\\Application.csproj|d:\\projects\\algoriza\\shipconnect\\application\\cqrs\\coursecqrs\\query\\getcoursesbycategoryidandratingsortquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8F216FB3-E0A0-AFEA-275A-4728126B9DB8}|Application\\Application.csproj|solutionrelative:application\\cqrs\\coursecqrs\\query\\getcoursesbycategoryidandratingsortquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8F216FB3-E0A0-AFEA-275A-4728126B9DB8}|Application\\Application.csproj|d:\\projects\\algoriza\\shipconnect\\application\\cqrs\\coursecqrs\\query\\getallcoursesquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8F216FB3-E0A0-AFEA-275A-4728126B9DB8}|Application\\Application.csproj|solutionrelative:application\\cqrs\\coursecqrs\\query\\getallcoursesquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8F216FB3-E0A0-AFEA-275A-4728126B9DB8}|Application\\Application.csproj|d:\\projects\\algoriza\\shipconnect\\application\\dtos\\coursedtos\\getcoursebyiddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -190,7 +190,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -198,12 +198,12 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "GetCourseByIdQuery.cs",
               "DocumentMoniker": "D:\\Projects\\Algoriza\\ShipConnect\\Application\\CQRS\\CourseCQRS\\Query\\GetCourseByIdQuery.cs",
               "RelativeDocumentMoniker": "Application\\CQRS\\CourseCQRS\\Query\\GetCourseByIdQuery.cs",
-              "ToolTip": "D:\\Projects\\Algoriza\\ShipConnect\\Application\\CQRS\\CourseCQRS\\Query\\GetCourseByIdQuery.cs*",
-              "RelativeToolTip": "Application\\CQRS\\CourseCQRS\\Query\\GetCourseByIdQuery.cs*",
+              "ToolTip": "D:\\Projects\\Algoriza\\ShipConnect\\Application\\CQRS\\CourseCQRS\\Query\\GetCourseByIdQuery.cs",
+              "RelativeToolTip": "Application\\CQRS\\CourseCQRS\\Query\\GetCourseByIdQuery.cs",
               "ViewState": "AgIAADQAAAAAAAAAAAAUwEEAAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-04T19:22:22.898Z",
@@ -212,18 +212,6 @@
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "GetCoursesByCategoryIdAndRatingSortQuery.cs",
-              "DocumentMoniker": "D:\\Projects\\Algoriza\\ShipConnect\\Application\\CQRS\\CourseCQRS\\Query\\GetCoursesByCategoryIdAndRatingSortQuery.cs",
-              "RelativeDocumentMoniker": "Application\\CQRS\\CourseCQRS\\Query\\GetCoursesByCategoryIdAndRatingSortQuery.cs",
-              "ToolTip": "D:\\Projects\\Algoriza\\ShipConnect\\Application\\CQRS\\CourseCQRS\\Query\\GetCoursesByCategoryIdAndRatingSortQuery.cs",
-              "RelativeToolTip": "Application\\CQRS\\CourseCQRS\\Query\\GetCoursesByCategoryIdAndRatingSortQuery.cs",
-              "ViewState": "AgIAAC4AAAAAAAAAAAAwwEIAAAAzAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-04T19:22:32.26Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
               "Title": "GetFilteredCoursesQuery.cs",
               "DocumentMoniker": "D:\\Projects\\Algoriza\\ShipConnect\\Application\\CQRS\\CourseCQRS\\Query\\GetFilteredCoursesQuery.cs",
               "RelativeDocumentMoniker": "Application\\CQRS\\CourseCQRS\\Query\\GetFilteredCoursesQuery.cs",
@@ -236,7 +224,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "CoursesController.cs",
               "DocumentMoniker": "D:\\Projects\\Algoriza\\ShipConnect\\API\\Controllers\\CoursesController.cs",
               "RelativeDocumentMoniker": "API\\Controllers\\CoursesController.cs",
@@ -249,15 +237,28 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
               "Title": "GetAllCoursesQuery.cs",
               "DocumentMoniker": "D:\\Projects\\Algoriza\\ShipConnect\\Application\\CQRS\\CourseCQRS\\Query\\GetAllCoursesQuery.cs",
               "RelativeDocumentMoniker": "Application\\CQRS\\CourseCQRS\\Query\\GetAllCoursesQuery.cs",
               "ToolTip": "D:\\Projects\\Algoriza\\ShipConnect\\Application\\CQRS\\CourseCQRS\\Query\\GetAllCoursesQuery.cs",
               "RelativeToolTip": "Application\\CQRS\\CourseCQRS\\Query\\GetAllCoursesQuery.cs",
-              "ViewState": "AgIAACcAAAAAAAAAAAAowC0AAAAzAAAAAAAAAA==",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAowCgAAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-04T19:22:11.275Z"
+              "WhenOpened": "2025-10-04T19:22:11.275Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "GetCoursesByCategoryIdAndRatingSortQuery.cs",
+              "DocumentMoniker": "D:\\Projects\\Algoriza\\ShipConnect\\Application\\CQRS\\CourseCQRS\\Query\\GetCoursesByCategoryIdAndRatingSortQuery.cs",
+              "RelativeDocumentMoniker": "Application\\CQRS\\CourseCQRS\\Query\\GetCoursesByCategoryIdAndRatingSortQuery.cs",
+              "ToolTip": "D:\\Projects\\Algoriza\\ShipConnect\\Application\\CQRS\\CourseCQRS\\Query\\GetCoursesByCategoryIdAndRatingSortQuery.cs",
+              "RelativeToolTip": "Application\\CQRS\\CourseCQRS\\Query\\GetCoursesByCategoryIdAndRatingSortQuery.cs",
+              "ViewState": "AgIAAC4AAAAAAAAAAAAwwEIAAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-04T19:22:32.26Z"
             },
             {
               "$type": "Document",
