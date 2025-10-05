@@ -84,7 +84,7 @@ namespace API.Controllers
             var result = await _mediator.Send(new GetCourseByIdQuery
             {
                 Id = id,
-                UserId = userId // could be null if user not logged in
+                UserId = userId 
             });
 
             if (!result.Success)

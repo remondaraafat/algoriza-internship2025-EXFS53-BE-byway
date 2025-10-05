@@ -28,14 +28,6 @@ namespace Application.CQRS.CourseCQRS.Query
 
         public async Task<GeneralResponse<GetCourseByIdDto>> Handle(GetCourseByIdQuery request, CancellationToken cancellationToken)
         {
-           
-
-            var course = await _unitOfWork.courseRepository
-                .GetFirstOrDefaultAsync(c => c.Id == request.Id);
-
-            if (course == null)
-                return GeneralResponse<GetCourseByIdDto>.FailResponse("Course not found");
-
             bool isBought = false;
             bool isInCart = false;
             if (request.UserId != null)
@@ -49,18 +41,18 @@ namespace Application.CQRS.CourseCQRS.Query
                  isInCart = await _unitOfWork.CartItemRepository
                     .ExistsAsync(c => c.CourseId == request.Id && c.UserId == request.UserId);
             }
+           
 
-
-
-                var dto = new GetCourseByIdDto
+            var course = await _unitOfWork.courseRepository
+                .GetWithFilterAsync(c => c.Id == request.Id).Select(course => new GetCourseByIdDto
                 {
                     Id = course.Id,
                     Title = course.Title,
                     Description = course.Description,
                     Certificate = course.Certificate,
-                    InstructorName = course.Instructor?.Name,
-                    InstructorImage= course.Instructor?.ImageUrl,
-                    CategoryName = course.Category?.Name,
+                    InstructorName = course.Instructor != null ? course.Instructor.Name : "Unknown Instructor",
+                    InstructorImage = course.Instructor != null ? course.Instructor.ImageUrl : string.Empty,
+                    CategoryName = course.Category != null ? course.Category.Name : "Uncategorized",
                     Price = course.Price,
                     Level = course.Level,
                     Rating = course.Rating,
@@ -73,9 +65,13 @@ namespace Application.CQRS.CourseCQRS.Query
                     IsBought = isBought,
                     IsInCart = isInCart
 
-                };
+                }).FirstOrDefaultAsync(cancellationToken);
 
-            return GeneralResponse<GetCourseByIdDto>.SuccessResponse("Course retrieved successfully", dto);
+            if (course == null)
+                return GeneralResponse<GetCourseByIdDto>.FailResponse("Course not found");
+
+
+            return GeneralResponse<GetCourseByIdDto>.SuccessResponse("Course retrieved successfully", course);
         }
     }
 }
