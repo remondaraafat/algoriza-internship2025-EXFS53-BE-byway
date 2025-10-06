@@ -231,8 +231,8 @@
               "Title": "CoursesController.cs",
               "DocumentMoniker": "D:\\Projects\\Algoriza\\ShipConnect\\API\\Controllers\\CoursesController.cs",
               "RelativeDocumentMoniker": "API\\Controllers\\CoursesController.cs",
-              "ToolTip": "D:\\Projects\\Algoriza\\ShipConnect\\API\\Controllers\\CoursesController.cs*",
-              "RelativeToolTip": "API\\Controllers\\CoursesController.cs*",
+              "ToolTip": "D:\\Projects\\Algoriza\\ShipConnect\\API\\Controllers\\CoursesController.cs",
+              "RelativeToolTip": "API\\Controllers\\CoursesController.cs",
               "ViewState": "AgIAAFcAAAAAAAAAAAAUwFYAAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-24T09:39:00.806Z",
@@ -704,7 +704,8 @@
               "RelativeToolTip": "API\\Controllers\\CartItemController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-24T09:34:42.066Z"
+              "WhenOpened": "2025-09-24T09:34:42.066Z",
+              "EditorCaption": ""
             }
           ]
         }
