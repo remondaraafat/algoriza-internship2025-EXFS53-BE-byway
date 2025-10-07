@@ -39,7 +39,8 @@ namespace API
                 {
                     policy.WithOrigins(
          "http://localhost:5173",
-         "https://remondaraafat.github.io"
+         "https://remondaraafat.github.io",
+         "https://courseproxy.vercel.app"
      )
      .AllowAnyHeader()
      .AllowAnyMethod()
